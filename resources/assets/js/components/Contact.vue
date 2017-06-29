@@ -1,11 +1,11 @@
 <template>
-    <h1>Hello world</h1>
+    <h1>contact page</h1>
 </template>
 
 <script>
     export default {
         mounted() {
-            console.log('Component mounted.')
+            console.log('Contact component mounted.')
         }
     }
 </script>
