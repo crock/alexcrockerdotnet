@@ -1,19 +1,13 @@
 <template>
     <div id="my-posts">
-        <div class="card text">
+        <div class="card" v-for="post in this.$parent.posts">
             <div class="heading">
-                <h3>Post Title</h3>
-                <div class="datetime">Jun 27, 2017</div>
+                <h3>{{ post.title }}</h3>
+                <div class="datetime">{{ post.date | date }}</div>
             </div>
             <div class="content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, officiis!</p>
+                <p>{{ post.body_abstract | stripTags }}</p>
                 <a href="" class="readMore">Read More</a>
-            </div>
-            <div class="actions">
-                <ul>
-                    <li><i class="fa fa-heart"></i></li>
-                    <li><i class="fa fa-send"></i></li>
-                </ul>
             </div>
         </div>
     </div>
@@ -21,6 +15,23 @@
 
 <script>
     export default {
+        filters: {
+            stripTags: function (str) {
+                if (str === null) {
+                    return ''
+                } else {
+                    return str.replace(/(<p>|<\/p>)/g, '')
+                }
+            },
+            date: function (date) {
+                if (date === null) {
+                    return ''
+                } else {
+                    var d = new Date(date);
+                    return d.toDateString();
+                }
+            }
+        },
         mounted() {
             console.log('Blog component mounted.')
         }
@@ -35,6 +46,8 @@
     }
 
     .card {
+        position: relative;
+        margin-top: 25px;
         width: 100%;
         min-height: 200px;
         background: #fff;

@@ -10,6 +10,7 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 import router from './router'
+import axios from 'axios'
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -19,11 +20,32 @@ import router from './router'
 
 Vue.component('navbar', require('./components/Navbar.vue'));
 Vue.component('profile', require('./components/Profile.vue'));
-//Vue.component('blog', require('./components/Blog.vue'));
-//Vue.component('work', require('./components/Work.vue'));
-//Vue.component('contact', require('./components/Contact.vue'));
 
 const app = new Vue({
     el: '#app',
-    router
+    data: {
+        posts: {},
+        works: [
+            {title: 'Alpha', img: 'https://placehold.it/250x250', imgAlt: 'work 1'},
+            {title: 'Bravo', img: 'https://placehold.it/250x250', imgAlt: 'work 2'},
+            {title: 'Charlie', img: 'https://placehold.it/250x250', imgAlt: 'work 3'},
+            {title: 'Delta', img: 'https://placehold.it/250x250', imgAlt: 'work 4'}
+        ]
+    },
+    router,
+    methods: {
+        getPosts: function () {
+            axios.get('/api/posts')
+                .then(function (response) {
+                    //app.posts.push(response.data.posts);
+                    app.posts = response.data.posts;
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+    },
+    created () {
+        this.getPosts();
+    }
 });

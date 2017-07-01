@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', $all)
+@section('title', 'home')
 
 @section('header')
     @parent

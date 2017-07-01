@@ -1,6 +1,6 @@
 <template>
     <div id="my-work">
-        <div class="work" v-for="work in this.works">
+        <div class="work" v-for="work in this.$parent.works">
             <img :src="work.img" :alt="work.imgAlt" />
             <div class="overlay">
                 <div class="text">{{ work.title }}</div>
@@ -11,16 +11,6 @@
 
 <script>
     export default {
-        data: function () {
-            return {
-                works: [
-                    {title: 'Alpha', img: 'https://placehold.it/250x250', imgAlt: 'work 1'},
-                    {title: 'Bravo', img: 'https://placehold.it/250x250', imgAlt: 'work 2'},
-                    {title: 'Charlie', img: 'https://placehold.it/250x250', imgAlt: 'work 3'},
-                    {title: 'Delta', img: 'https://placehold.it/250x250', imgAlt: 'work 4'}
-                ]
-            };
-        },
         mounted() {
             console.log('Work component mounted.')
         }

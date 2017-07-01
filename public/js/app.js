@@ -73,7 +73,7 @@
 "use strict";
 
 
-var bind = __webpack_require__(9);
+var bind = __webpack_require__(10);
 
 /*global toString:true*/
 
@@ -731,10 +731,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(5);
+    adapter = __webpack_require__(6);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(5);
+    adapter = __webpack_require__(6);
   }
   return adapter;
 }
@@ -811,6 +811,12 @@ module.exports = defaults;
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__(15);
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 
@@ -819,7 +825,7 @@ var settle = __webpack_require__(21);
 var buildURL = __webpack_require__(24);
 var parseHeaders = __webpack_require__(30);
 var isURLSameOrigin = __webpack_require__(28);
-var createError = __webpack_require__(8);
+var createError = __webpack_require__(9);
 var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(23);
 
 module.exports = function xhrAdapter(config) {
@@ -992,7 +998,7 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1018,7 +1024,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1030,7 +1036,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1054,7 +1060,7 @@ module.exports = function createError(message, config, code, response) {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1072,7 +1078,7 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10768,10 +10774,10 @@ Vue$3.compile = compileToFunctions;
 
 module.exports = Vue$3;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports) {
 
 var g;
@@ -10798,12 +10804,14 @@ module.exports = g;
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -10813,7 +10821,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 __webpack_require__(37);
 
-window.Vue = __webpack_require__(10);
+window.Vue = __webpack_require__(11);
+
 
 
 
@@ -10825,26 +10834,34 @@ window.Vue = __webpack_require__(10);
 
 Vue.component('navbar', __webpack_require__(48));
 Vue.component('profile', __webpack_require__(49));
-//Vue.component('blog', require('./components/Blog.vue'));
-//Vue.component('work', require('./components/Work.vue'));
-//Vue.component('contact', require('./components/Contact.vue'));
 
 var app = new Vue({
-  el: '#app',
-  router: __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */]
+    el: '#app',
+    data: {
+        posts: {},
+        works: [{ title: 'Alpha', img: 'https://placehold.it/250x250', imgAlt: 'work 1' }, { title: 'Bravo', img: 'https://placehold.it/250x250', imgAlt: 'work 2' }, { title: 'Charlie', img: 'https://placehold.it/250x250', imgAlt: 'work 3' }, { title: 'Delta', img: 'https://placehold.it/250x250', imgAlt: 'work 4' }]
+    },
+    router: __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */],
+    methods: {
+        getPosts: function getPosts() {
+            __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/posts').then(function (response) {
+                //app.posts.push(response.data.posts);
+                app.posts = response.data.posts;
+            }).catch(function (error) {
+                console.log(error);
+            });
+        }
+    },
+    created: function created() {
+        this.getPosts();
+    }
 });
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(15);
 
 /***/ }),
 /* 15 */
@@ -10854,7 +10871,7 @@ module.exports = __webpack_require__(15);
 
 
 var utils = __webpack_require__(0);
-var bind = __webpack_require__(9);
+var bind = __webpack_require__(10);
 var Axios = __webpack_require__(17);
 var defaults = __webpack_require__(4);
 
@@ -10889,9 +10906,9 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(6);
+axios.Cancel = __webpack_require__(7);
 axios.CancelToken = __webpack_require__(16);
-axios.isCancel = __webpack_require__(7);
+axios.isCancel = __webpack_require__(8);
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -10912,7 +10929,7 @@ module.exports.default = axios;
 "use strict";
 
 
-var Cancel = __webpack_require__(6);
+var Cancel = __webpack_require__(7);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -11129,7 +11146,7 @@ module.exports = InterceptorManager;
 
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(22);
-var isCancel = __webpack_require__(7);
+var isCancel = __webpack_require__(8);
 var defaults = __webpack_require__(4);
 
 /**
@@ -11239,7 +11256,7 @@ module.exports = function enhanceError(error, config, code, response) {
 "use strict";
 
 
-var createError = __webpack_require__(8);
+var createError = __webpack_require__(9);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -11702,14 +11719,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    filters: {
+        stripTags: function stripTags(str) {
+            if (str === null) {
+                return '';
+            } else {
+                return str.replace(/(<p>|<\/p>)/g, '');
+            }
+        },
+        date: function date(_date) {
+            if (_date === null) {
+                return '';
+            } else {
+                var d = new Date(_date);
+                return d.toDateString();
+            }
+        }
+    },
     mounted: function mounted() {
         console.log('Blog component mounted.');
     }
@@ -11836,11 +11864,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            works: [{ title: 'Alpha', img: 'https://placehold.it/250x250', imgAlt: 'work 1' }, { title: 'Bravo', img: 'https://placehold.it/250x250', imgAlt: 'work 2' }, { title: 'Charlie', img: 'https://placehold.it/250x250', imgAlt: 'work 3' }, { title: 'Delta', img: 'https://placehold.it/250x250', imgAlt: 'work 4' }]
-        };
-    },
     mounted: function mounted() {
         console.log('Work component mounted.');
     }
@@ -11859,7 +11882,7 @@ window._ = __webpack_require__(44);
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(14);
+window.axios = __webpack_require__(5);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -11897,7 +11920,7 @@ if (token) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(56);
 
@@ -11938,7 +11961,7 @@ exports.push([module.i, "\n#banner {\n  position: relative;\n  top: 50px;\n  wid
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\n#my-posts {\n  position: relative;\n  width: 90%;\n  margin: 150px auto 50px auto;\n}\n.card {\n  width: 100%;\n  min-height: 200px;\n  background: #fff;\n  box-shadow: 1px 1px 10px #B5B4B6;\n  padding: 15px;\n}\n.card .heading {\n    padding: 15px;\n}\n.card .heading h3 {\n      font-size: 2rem;\n      font-weight: 300;\n      color: teal;\n}\n.card .heading .datetime {\n      color: #9B9B9B;\n      font-style: italic;\n      font-size: 1rem;\n}\n.card .content {\n    padding: 15px;\n}\n.card .content p {\n      font-weight: 300;\n      line-height: 1.5rem;\n      color: #000;\n}\n.card .content .readMore {\n      text-align: left;\n      text-decoration: none;\n      color: teal;\n      margin-bottom: 25px;\n}\n.card .actions {\n    padding: 15px;\n}\n.card .actions ul {\n      list-style: none !important;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: horizontal;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: row;\n              flex-direction: row;\n      -ms-flex-pack: distribute;\n          justify-content: space-around;\n}\n.card .actions ul li {\n        margin: 10px;\n}\n", ""]);
+exports.push([module.i, "\n#my-posts {\n  position: relative;\n  width: 90%;\n  margin: 150px auto 50px auto;\n}\n.card {\n  position: relative;\n  margin-top: 25px;\n  width: 100%;\n  min-height: 200px;\n  background: #fff;\n  box-shadow: 1px 1px 10px #B5B4B6;\n  padding: 15px;\n}\n.card .heading {\n    padding: 15px;\n}\n.card .heading h3 {\n      font-size: 2rem;\n      font-weight: 300;\n      color: teal;\n}\n.card .heading .datetime {\n      color: #9B9B9B;\n      font-style: italic;\n      font-size: 1rem;\n}\n.card .content {\n    padding: 15px;\n}\n.card .content p {\n      font-weight: 300;\n      line-height: 1.5rem;\n      color: #000;\n}\n.card .content .readMore {\n      text-align: left;\n      text-decoration: none;\n      color: teal;\n      margin-bottom: 25px;\n}\n.card .actions {\n    padding: 15px;\n}\n.card .actions ul {\n      list-style: none !important;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: horizontal;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: row;\n              flex-direction: row;\n      -ms-flex-pack: distribute;\n          justify-content: space-around;\n}\n.card .actions ul li {\n        margin: 10px;\n}\n", ""]);
 
 /***/ }),
 /* 42 */
@@ -29044,7 +29067,7 @@ exports.push([module.i, "\n#my-work {\n  position: relative;\n  margin-top: 150p
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11), __webpack_require__(63)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(63)(module)))
 
 /***/ }),
 /* 45 */
@@ -29497,33 +29520,27 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _vm._m(0)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     attrs: {
       "id": "my-posts"
     }
-  }, [_c('div', {
-    staticClass: "card text"
-  }, [_c('div', {
-    staticClass: "heading"
-  }, [_c('h3', [_vm._v("Post Title")]), _vm._v(" "), _c('div', {
-    staticClass: "datetime"
-  }, [_vm._v("Jun 27, 2017")])]), _vm._v(" "), _c('div', {
-    staticClass: "content"
-  }, [_c('p', [_vm._v("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, officiis!")]), _vm._v(" "), _c('a', {
-    staticClass: "readMore",
-    attrs: {
-      "href": ""
-    }
-  }, [_vm._v("Read More")])]), _vm._v(" "), _c('div', {
-    staticClass: "actions"
-  }, [_c('ul', [_c('li', [_c('i', {
-    staticClass: "fa fa-heart"
-  })]), _vm._v(" "), _c('li', [_c('i', {
-    staticClass: "fa fa-send"
-  })])])])])])
-}]}
+  }, _vm._l((this.$parent.posts), function(post) {
+    return _c('div', {
+      staticClass: "card"
+    }, [_c('div', {
+      staticClass: "heading"
+    }, [_c('h3', [_vm._v(_vm._s(post.title))]), _vm._v(" "), _c('div', {
+      staticClass: "datetime"
+    }, [_vm._v(_vm._s(_vm._f("date")(post.date)))])]), _vm._v(" "), _c('div', {
+      staticClass: "content"
+    }, [_c('p', [_vm._v(_vm._s(_vm._f("stripTags")(post.body_abstract)))]), _vm._v(" "), _c('a', {
+      staticClass: "readMore",
+      attrs: {
+        "href": ""
+      }
+    }, [_vm._v("Read More")])])])
+  }))
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
@@ -29648,7 +29665,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "id": "my-work"
     }
-  }, _vm._l((this.works), function(work) {
+  }, _vm._l((this.$parent.works), function(work) {
     return _c('div', {
       staticClass: "work"
     }, [_c('img', {
@@ -32378,8 +32395,8 @@ module.exports = function(module) {
 /* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(12);
-module.exports = __webpack_require__(13);
+__webpack_require__(13);
+module.exports = __webpack_require__(14);
 
 
 /***/ })
