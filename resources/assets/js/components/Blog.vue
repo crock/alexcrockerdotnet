@@ -31,9 +31,6 @@
                     return d.toDateString();
                 }
             }
-        },
-        mounted() {
-            console.log('Blog component mounted.')
         }
     }
 </script>

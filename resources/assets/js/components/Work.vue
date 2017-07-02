@@ -2,20 +2,14 @@
     <div id="my-work">
         <div class="work" v-for="project in this.$parent.projects">
             <img class="image" :src="project.covers.original" :alt="project.name" />
-            <div class="overlay">
-                <div class="text">{{ project.name }}</div>
-            </div>
+            <a :href="project.short_url">
+                <div class="overlay">
+                    <div class="text">{{ project.name }}</div>
+                </div>
+            </a>
         </div>
     </div>
 </template>
-
-<script>
-    export default {
-        mounted() {
-            console.log('Work component mounted.')
-        }
-    }
-</script>
 
 <style lang="scss">
     #my-work {

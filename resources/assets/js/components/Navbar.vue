@@ -31,14 +31,6 @@
     </nav>
 </template>
 
-<script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
-    }
-</script>
-
 <style lang="scss">
     nav {
         width: 100%;
