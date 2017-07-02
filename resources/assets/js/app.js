@@ -25,6 +25,7 @@ const app = new Vue({
     el: '#app',
     data: {
         posts: {},
+        projects: {},
         works: [
             {title: 'Alpha', img: 'https://placehold.it/250x250', imgAlt: 'work 1'},
             {title: 'Bravo', img: 'https://placehold.it/250x250', imgAlt: 'work 2'},
@@ -37,8 +38,16 @@ const app = new Vue({
         getPosts: function () {
             axios.get('/api/posts')
                 .then(function (response) {
-                    //app.posts.push(response.data.posts);
                     app.posts = response.data.posts;
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        },
+        getProjects: function () {
+            axios.get('/api/projects')
+                .then(function (response) {
+                    app.projects = response.data;
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -46,6 +55,7 @@ const app = new Vue({
         }
     },
     created () {
-        this.getPosts();
+        //this.getPosts();
+        //this.getProjects();
     }
 });

@@ -1,9 +1,9 @@
 <template>
     <div id="my-work">
-        <div class="work" v-for="work in this.$parent.works">
-            <img :src="work.img" :alt="work.imgAlt" />
+        <div class="work" v-for="project in this.$parent.projects">
+            <img class="image" :src="project.covers.original" :alt="project.name" />
             <div class="overlay">
-                <div class="text">{{ work.title }}</div>
+                <div class="text">{{ project.name }}</div>
             </div>
         </div>
     </div>
@@ -20,7 +20,7 @@
 <style lang="scss">
     #my-work {
         position: relative;
-        margin-top: 150px;
+        margin-top: 50px;
     }
     .work {
         position: relative;

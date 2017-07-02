@@ -10839,21 +10839,29 @@ var app = new Vue({
     el: '#app',
     data: {
         posts: {},
+        projects: {},
         works: [{ title: 'Alpha', img: 'https://placehold.it/250x250', imgAlt: 'work 1' }, { title: 'Bravo', img: 'https://placehold.it/250x250', imgAlt: 'work 2' }, { title: 'Charlie', img: 'https://placehold.it/250x250', imgAlt: 'work 3' }, { title: 'Delta', img: 'https://placehold.it/250x250', imgAlt: 'work 4' }]
     },
     router: __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */],
     methods: {
         getPosts: function getPosts() {
             __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/posts').then(function (response) {
-                //app.posts.push(response.data.posts);
                 app.posts = response.data.posts;
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
+        getProjects: function getProjects() {
+            __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/projects').then(function (response) {
+                app.projects = response.data;
             }).catch(function (error) {
                 console.log(error);
             });
         }
     },
     created: function created() {
-        this.getPosts();
+        //this.getPosts();
+        //this.getProjects();
     }
 });
 
@@ -11753,10 +11761,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            currentDate: ""
+        };
+    },
     mounted: function mounted() {
-        console.log('Contact component mounted.');
+        var d = new Date();
+        this.currentDate = d.toDateString();
     }
 });
 
@@ -11947,7 +11980,7 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "", ""]);
+exports.push([module.i, "\n#contact {\n  position: relative;\n  margin-top: 50px;\n  padding: 25px;\n  width: 100%;\n}\n#contact h3 {\n    display: block;\n    font-size: 30px;\n    font-weight: 300;\n    margin-bottom: 10px;\n}\n#contact h4 {\n    margin: 5px 0 15px;\n    display: block;\n    font-size: 13px;\n    font-weight: 400;\n}\n#contact input[type=\"text\"],\n  #contact input[type=\"email\"],\n  #contact input[type=\"tel\"],\n  #contact input[type=\"url\"],\n  #contact textarea,\n  #contact button[type=\"submit\"] {\n    font: 400 12px/16px \"Roboto\", Helvetica, Arial, sans-serif;\n}\n#contact fieldset {\n    border: medium none !important;\n    margin: 0 0 10px;\n    min-width: 100%;\n    padding: 0;\n    width: 100%;\n}\n#contact input[type=\"text\"],\n  #contact input[type=\"email\"],\n  #contact input[type=\"tel\"],\n  #contact input[type=\"url\"],\n  #contact textarea {\n    width: 100%;\n    border: 1px solid #ccc;\n    background: #FFF;\n    margin: 0 0 5px;\n    padding: 10px;\n}\n#contact input[type=\"text\"]:hover,\n  #contact input[type=\"email\"]:hover,\n  #contact input[type=\"tel\"]:hover,\n  #contact input[type=\"url\"]:hover,\n  #contact textarea:hover {\n    transition: border-color 0.3s ease-in-out;\n    border: 1px solid #aaa;\n}\n#contact textarea {\n    height: 100px;\n    max-width: 100%;\n    resize: none;\n}\n#contact button[type=\"submit\"] {\n    cursor: pointer;\n    width: 100%;\n    border: none;\n    background: teal;\n    color: #FFF;\n    margin: 0 0 5px;\n    padding: 10px;\n    font-size: 15px;\n}\n#contact button[type=\"submit\"]:hover {\n    background: #43A047;\n    transition: background-color 0.3s ease-in-out;\n}\n#contact button[type=\"submit\"]:active {\n    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);\n}\n#contact input:focus,\n  #contact textarea:focus {\n    outline: 0;\n    border: 1px solid #aaa;\n}\n::-webkit-input-placeholder {\n  color: #888;\n}\n:-moz-placeholder {\n  color: #888;\n}\n::-moz-placeholder {\n  color: #888;\n}\n:-ms-input-placeholder {\n  color: #888;\n}\n", ""]);
 
 /***/ }),
 /* 40 */
@@ -11975,7 +12008,7 @@ exports.push([module.i, "\nnav {\n  width: 100%;\n  height: 50px;\n  position: f
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\n#my-work {\n  position: relative;\n  margin-top: 150px;\n}\n.work {\n  position: relative;\n  width: calc(50% - 2px);\n  height: auto;\n  margin: 1px;\n}\n.image {\n  display: block;\n  width: 100%;\n  height: auto;\n}\n.overlay {\n  position: absolute;\n  bottom: 100%;\n  left: 0;\n  right: 0;\n  background-color: #008CBA;\n  overflow: hidden;\n  width: 100%;\n  height: 0;\n  transition: .5s ease;\n}\n.work:hover .overlay {\n  bottom: 0;\n  height: 100%;\n}\n.text {\n  white-space: nowrap;\n  color: white;\n  font-size: 20px;\n  position: absolute;\n  overflow: hidden;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n}\n@media screen and (max-width: 768px) {\n#my-work {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-flow: row wrap;\n            flex-flow: row wrap;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n}\n}\n@media screen and (min-width: 769px) {\n#my-work {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-flow: row wrap;\n            flex-flow: row wrap;\n    -ms-flex-pack: distribute;\n        justify-content: space-around;\n}\n#my-work img {\n    width: 250xp;\n    height: 250px;\n    margin: 25px 0;\n}\n}\n", ""]);
+exports.push([module.i, "\n#my-work {\n  position: relative;\n  margin-top: 50px;\n}\n.work {\n  position: relative;\n  width: calc(50% - 2px);\n  height: auto;\n  margin: 1px;\n}\n.image {\n  display: block;\n  width: 100%;\n  height: auto;\n}\n.overlay {\n  position: absolute;\n  bottom: 100%;\n  left: 0;\n  right: 0;\n  background-color: #008CBA;\n  overflow: hidden;\n  width: 100%;\n  height: 0;\n  transition: .5s ease;\n}\n.work:hover .overlay {\n  bottom: 0;\n  height: 100%;\n}\n.text {\n  white-space: nowrap;\n  color: white;\n  font-size: 20px;\n  position: absolute;\n  overflow: hidden;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n}\n@media screen and (max-width: 768px) {\n#my-work {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-flow: row wrap;\n            flex-flow: row wrap;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n}\n}\n@media screen and (min-width: 769px) {\n#my-work {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-flow: row wrap;\n            flex-flow: row wrap;\n    -ms-flex-pack: distribute;\n        justify-content: space-around;\n}\n#my-work img {\n    width: 250xp;\n    height: 250px;\n    margin: 25px 0;\n}\n}\n", ""]);
 
 /***/ }),
 /* 44 */
@@ -29454,8 +29487,69 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('h1', [_vm._v("contact page")])
-},staticRenderFns: []}
+  return _c('form', {
+    attrs: {
+      "id": "contact",
+      "action": "/api/message/send",
+      "method": "post"
+    }
+  }, [_c('h3', [_vm._v("Get in touch!")]), _vm._v(" "), _c('h4', [_vm._v("Contact me for a quote, questions/concerns, or just to say hi.")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _c('input', {
+    attrs: {
+      "type": "hidden",
+      "name": "dateSent"
+    },
+    domProps: {
+      "value": this.currentDate
+    }
+  }), _vm._v(" "), _vm._m(4)])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('fieldset', [_c('input', {
+    attrs: {
+      "placeholder": "Your name",
+      "name": "name",
+      "type": "text",
+      "tabindex": "1",
+      "required": "",
+      "autofocus": ""
+    }
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('fieldset', [_c('input', {
+    attrs: {
+      "placeholder": "Your Email Address",
+      "name": "email",
+      "type": "email",
+      "tabindex": "2",
+      "required": ""
+    }
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('fieldset', [_c('input', {
+    attrs: {
+      "placeholder": "Your Phone Number (optional)",
+      "name": "phone",
+      "type": "tel",
+      "tabindex": "3"
+    }
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('fieldset', [_c('textarea', {
+    attrs: {
+      "placeholder": "Type your message here...",
+      "name": "message",
+      "tabindex": "5",
+      "required": ""
+    }
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('fieldset', [_c('button', {
+    attrs: {
+      "name": "submit",
+      "type": "submit",
+      "id": "contact-submit"
+    }
+  }, [_vm._v("Submit")])])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
@@ -29665,19 +29759,20 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "id": "my-work"
     }
-  }, _vm._l((this.$parent.works), function(work) {
+  }, _vm._l((this.$parent.projects), function(project) {
     return _c('div', {
       staticClass: "work"
     }, [_c('img', {
+      staticClass: "image",
       attrs: {
-        "src": work.img,
-        "alt": work.imgAlt
+        "src": project.covers.original,
+        "alt": project.name
       }
     }), _vm._v(" "), _c('div', {
       staticClass: "overlay"
     }, [_c('div', {
       staticClass: "text"
-    }, [_vm._v(_vm._s(work.title))])])])
+    }, [_vm._v(_vm._s(project.name))])])])
   }))
 },staticRenderFns: []}
 module.exports.render._withStripped = true
