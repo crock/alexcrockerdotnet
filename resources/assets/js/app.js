@@ -55,7 +55,7 @@ const app = new Vue({
         }
     },
     created () {
-        //this.getPosts();
-        //this.getProjects();
+        this.getPosts();
+        this.getProjects();
     }
 });

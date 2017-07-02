@@ -15,12 +15,12 @@ class MailController extends Controller
         $message = $request->get('message');;
         $date = $request->get('dateSent');
 
-        Mail::send('emails.contact', ['name' => $name, 'email' => $email, 'phone' => $phone, 'bodyMessage' => $message, 'date' => $date], function($data)
-        {
+        Mail::send('emails.contact', ['name' => $name, 'email' => $email, 'phone' => $phone, 'bodyMessage' => $message, 'date' => $date], function($data) use ($name, $email) {
             $data->from('alexcrocker@me.com', 'AlexCrocker.net');
 
-            $data->to('alexcrocker@me.com', 'Alex Crocker')->subject('A site visitor has messaged you!');
-
+            $data->to('alexcrocker@me.com', 'Alex Crocker')
+                ->subject('A site visitor has messaged you!')
+                ->replyTo($email, $name);
         });
     }
 }
