@@ -26,3 +26,5 @@ Route::get('/work', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+
+Route::post('/message/send', 'MailController@send');

@@ -1,5 +1,5 @@
 <template>
-    <form id="contact" action="/api/message/send" method="post">
+    <form id="contact" action="/message/send" method="post">
         <h3>Get in touch!</h3>
         <h4>Contact me for a quote, questions/concerns, or just to say hi.</h4>
         <fieldset>

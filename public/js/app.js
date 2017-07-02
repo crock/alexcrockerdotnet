@@ -29490,7 +29490,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('form', {
     attrs: {
       "id": "contact",
-      "action": "/api/message/send",
+      "action": "/message/send",
       "method": "post"
     }
   }, [_c('h3', [_vm._v("Get in touch!")]), _vm._v(" "), _c('h4', [_vm._v("Contact me for a quote, questions/concerns, or just to say hi.")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _c('input', {
