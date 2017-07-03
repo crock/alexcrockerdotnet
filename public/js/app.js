@@ -11921,7 +11921,7 @@ exports.push([module.i, "\n#banner {\n  position: relative;\n  top: 50px;\n  wid
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\n#my-posts {\n  position: relative;\n  width: 90%;\n  margin: 150px auto 50px auto;\n}\n.card {\n  position: relative;\n  margin-top: 25px;\n  width: 100%;\n  min-height: 200px;\n  background: #fff;\n  box-shadow: 1px 1px 10px #B5B4B6;\n  padding: 15px;\n}\n.card .heading {\n    padding: 15px;\n}\n.card .heading h3 {\n      font-size: 2rem;\n      font-weight: 300;\n      color: teal;\n}\n.card .heading .datetime {\n      color: #9B9B9B;\n      font-style: italic;\n      font-size: 1rem;\n}\n.card .content {\n    padding: 15px;\n}\n.card .content p {\n      font-weight: 300;\n      line-height: 1.5rem;\n      color: #000;\n}\n.card .content .readMore {\n      text-align: left;\n      text-decoration: none;\n      color: teal;\n      margin-bottom: 25px;\n}\n.card .actions {\n    padding: 15px;\n}\n.card .actions ul {\n      list-style: none !important;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: horizontal;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: row;\n              flex-direction: row;\n      -ms-flex-pack: distribute;\n          justify-content: space-around;\n}\n.card .actions ul li {\n        margin: 10px;\n}\n", ""]);
+exports.push([module.i, "\n#my-posts {\n  position: relative;\n  width: 90%;\n  margin: 50px auto 50px auto;\n}\n.card {\n  position: relative;\n  margin-top: 25px;\n  width: 100%;\n  min-height: 200px;\n  background: #fff;\n  box-shadow: 1px 1px 10px #B5B4B6;\n  padding: 15px;\n}\n.card .heading {\n    padding: 15px;\n}\n.card .heading h3 {\n      font-size: 2rem;\n      font-weight: 300;\n      color: teal;\n}\n.card .heading .datetime {\n      color: #9B9B9B;\n      font-style: italic;\n      font-size: 1rem;\n}\n.card .content {\n    padding: 15px;\n}\n.card .content p {\n      font-weight: 300;\n      line-height: 1.5rem;\n      color: #000;\n}\n.card .content .readMore {\n      text-align: left;\n      text-decoration: none;\n      color: teal;\n      margin-bottom: 25px;\n}\n.card .actions {\n    padding: 15px;\n}\n.card .actions ul {\n      list-style: none !important;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: horizontal;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: row;\n              flex-direction: row;\n      -ms-flex-pack: distribute;\n          justify-content: space-around;\n}\n.card .actions ul li {\n        margin: 10px;\n}\n", ""]);
 
 /***/ }),
 /* 40 */
@@ -29557,7 +29557,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('p', [_vm._v(_vm._s(_vm._f("stripTags")(post.body_abstract)))]), _vm._v(" "), _c('a', {
       staticClass: "readMore",
       attrs: {
-        "href": ""
+        "href": post.short_url
       }
     }, [_vm._v("Read More")])])])
   }))

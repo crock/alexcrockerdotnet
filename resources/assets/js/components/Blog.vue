@@ -7,7 +7,7 @@
             </div>
             <div class="content">
                 <p>{{ post.body_abstract | stripTags }}</p>
-                <a href="" class="readMore">Read More</a>
+                <a :href="post.short_url" class="readMore">Read More</a>
             </div>
         </div>
     </div>
@@ -39,7 +39,7 @@
     #my-posts {
         position: relative;
         width: 90%;
-        margin: 150px auto 50px auto;
+        margin: 50px auto 50px auto;
     }
 
     .card {
