@@ -11944,6 +11944,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     computed: {
@@ -12045,21 +12046,21 @@ exports.push([module.i, "\n#banner {\n  position: relative;\n  top: 50px;\n  wid
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\n#my-posts {\n  position: relative;\n  width: 90%;\n  margin: 50px auto 50px auto;\n}\n.card {\n  position: relative;\n  margin-top: 25px;\n  width: 100%;\n  min-height: 200px;\n  background: #fff;\n  box-shadow: 1px 1px 10px #B5B4B6;\n  padding: 15px;\n}\n.card .heading {\n    padding: 15px;\n}\n.card .heading h3 {\n      font-size: 2rem;\n      font-weight: 300;\n      color: teal;\n}\n.card .heading .datetime {\n      color: #9B9B9B;\n      font-style: italic;\n      font-size: 1rem;\n}\n.card .content {\n    padding: 15px;\n}\n.card .content p {\n      font-weight: 300;\n      line-height: 1.5rem;\n      color: #000;\n}\n.card .content .readMore {\n      text-align: left;\n      text-decoration: none;\n      color: teal;\n      margin-bottom: 25px;\n}\n.card .actions {\n    padding: 15px;\n}\n.card .actions ul {\n      list-style: none !important;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: horizontal;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: row;\n              flex-direction: row;\n      -ms-flex-pack: distribute;\n          justify-content: space-around;\n}\n.card .actions ul li {\n        margin: 10px;\n}\n", ""]);
+exports.push([module.i, "\n#my-posts {\n  position: relative;\n  width: 90%;\n  margin: 50px auto 50px auto;\n}\n.card {\n  position: relative;\n  margin-top: 25px;\n  width: 100%;\n  min-height: 200px;\n  background: #fff;\n  box-shadow: 1px 1px 10px #B5B4B6;\n  padding: 15px;\n}\n.card .heading {\n    padding: 15px;\n}\n.card .heading h3 {\n      font-size: 2rem;\n      font-weight: 300;\n      color: teal;\n}\n.card .heading .datetime {\n      color: #9B9B9B;\n      font-style: italic;\n      font-size: 1rem;\n}\n.card .content {\n    padding: 15px;\n}\n.card .content p {\n      font-weight: 300;\n      line-height: 1.5rem;\n      color: #000;\n      padding-bottom: 25px;\n}\n.card .content .readMore {\n      position: absolute;\n      bottom: 0;\n      right: 0;\n      text-decoration: none;\n      color: teal;\n      padding: 25px;\n}\n@media screen and (min-width: 769px) {\n#my-posts {\n    position: relative;\n    margin-top: 50px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-flow: row wrap;\n            flex-flow: row wrap;\n    -ms-flex-pack: distribute;\n        justify-content: space-around;\n    -ms-flex-line-pack: center;\n        align-content: center;\n}\n#my-posts .card {\n      -webkit-box-flex: 1;\n          -ms-flex: 1 200px;\n              flex: 1 200px;\n      margin: 10px;\n}\n}\n", ""]);
 
 /***/ }),
 /* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\nnav {\n  width: 100%;\n  height: 50px;\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  background: #fff;\n  z-index: 1000;\n}\nnav div {\n    width: 80%;\n    height: inherit;\n    margin: 0 auto;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-flow: row nowrap;\n            flex-flow: row nowrap;\n    -ms-flex-pack: distribute;\n        justify-content: space-around;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\nnav div a:nth-of-type(1) svg {\n      width: 21px;\n      height: auto;\n}\nnav div a:nth-of-type(2) svg {\n      width: 40px;\n      height: auto;\n}\nnav div a:nth-of-type(3) svg {\n      width: 22px;\n      height: auto;\n}\nnav div a:hover svg {\n      fill: teal;\n}\n", ""]);
+exports.push([module.i, "\nnav {\n  width: 100%;\n  height: 50px;\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  background: #fff;\n  z-index: 1000;\n}\nnav div {\n    width: 80%;\n    height: inherit;\n    margin: 0 auto;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-flow: row nowrap;\n            flex-flow: row nowrap;\n    -ms-flex-pack: distribute;\n        justify-content: space-around;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\nnav div a:nth-of-type(1) svg {\n      width: 31px;\n      height: auto;\n}\nnav div a:nth-of-type(2) svg {\n      width: 40px;\n      height: auto;\n}\nnav div a:nth-of-type(3) svg {\n      width: 22px;\n      height: auto;\n}\nnav div a:hover svg {\n      fill: teal;\n}\n", ""]);
 
 /***/ }),
 /* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\n#my-work {\n  position: relative;\n  margin-top: 50px;\n}\n.work {\n  position: relative;\n  width: calc(50% - 2px);\n  height: auto;\n  margin: 1px;\n}\n.image {\n  display: block;\n  width: 100%;\n  height: auto;\n}\n.overlay {\n  position: absolute;\n  bottom: 100%;\n  left: 0;\n  right: 0;\n  background-color: #008CBA;\n  overflow: hidden;\n  width: 100%;\n  height: 0;\n  transition: .5s ease;\n}\n.work:hover .overlay {\n  bottom: 0;\n  height: 100%;\n}\n.text {\n  white-space: nowrap;\n  color: white;\n  font-size: 20px;\n  position: absolute;\n  overflow: hidden;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n}\n@media screen and (max-width: 768px) {\n#my-work {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-flow: row wrap;\n            flex-flow: row wrap;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n}\n}\n@media screen and (min-width: 769px) {\n#my-work {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-flow: row wrap;\n            flex-flow: row wrap;\n    -ms-flex-pack: distribute;\n        justify-content: space-around;\n}\n#my-work img {\n    width: 250xp;\n    height: 250px;\n    margin: 25px 0;\n}\n}\n", ""]);
+exports.push([module.i, "\n#my-work {\n  position: relative;\n  margin-top: 50px;\n}\n.work {\n  position: relative;\n  width: calc(50% - 2px);\n  height: auto;\n  margin: 1px;\n  background: #000;\n}\n.image {\n  display: block;\n  width: 100%;\n  height: 200px;\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center center;\n}\n.overlay {\n  position: absolute;\n  bottom: 100%;\n  left: 0;\n  right: 0;\n  background-color: #008CBA;\n  overflow: hidden;\n  width: 100%;\n  height: 0;\n  transition: .5s ease;\n}\n.work:hover .overlay {\n  bottom: 0;\n  height: 100%;\n}\n.text {\n  white-space: nowrap;\n  color: white;\n  font-size: 20px;\n  position: absolute;\n  overflow: hidden;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n}\n@media screen and (max-width: 768px) {\n#my-work {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-flow: row wrap;\n            flex-flow: row wrap;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n}\n}\n@media screen and (min-width: 769px) {\n#my-work {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-flow: row wrap;\n            flex-flow: row wrap;\n    -ms-flex-pack: distribute;\n        justify-content: space-around;\n}\n#my-work img {\n    width: 250xp;\n    height: 250px;\n    margin: 25px 0;\n}\n}\n", ""]);
 
 /***/ }),
 /* 44 */
@@ -29703,60 +29704,40 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "nav-wrap"
   }, [_c('router-link', {
     attrs: {
-      "to": "/blog"
+      "to": "/blog",
+      "data-ot": "My Blog"
     }
   }, [_c('svg', {
-    staticClass: "undefined",
     attrs: {
+      "height": "50px",
+      "version": "1.1",
+      "viewBox": "0 0 16 16",
+      "width": "50px",
       "xmlns": "http://www.w3.org/2000/svg",
-      "height": "24",
-      "viewBox": "0 0 24 24",
-      "width": "24"
+      "xmlns:sketch": "http://www.bohemiancoding.com/sketch/ns",
+      "xmlns:xlink": "http://www.w3.org/1999/xlink"
     }
   }, [_c('g', {
     attrs: {
-      "id": "blog"
+      "id": "blog",
+      "transform": "translate(-816.000000, -240.000000)"
     }
   }, [_c('path', {
-    staticClass: "undefined",
     attrs: {
-      "d": "M11 1.1C11 0.5 10.5 0 9.9 0H1.1C0.5 0 0 0.5 0 1.1v8.8C0 10.5 0.5 11 1.1 11h8.8c0.6 0 1.1-0.5 1.1-1.1V1.1zM9 9H2V2h7V9z"
-    }
-  }), _vm._v(" "), _c('path', {
-    staticClass: "undefined",
-    attrs: {
-      "d": "M11 14.1c0-0.6-0.5-1.1-1.1-1.1H1.1C0.5 13 0 13.5 0 14.1v8.8C0 23.5 0.5 24 1.1 24h8.8c0.6 0 1.1-0.5 1.1-1.1V14.1zM9 22H2v-7h7V22z"
-    }
-  }), _vm._v(" "), _c('path', {
-    staticClass: "undefined",
-    attrs: {
-      "d": "M24 7.1C24 6.5 23.5 6 22.9 6h-8.8C13.5 6 13 6.5 13 7.1v2.8c0 0.6 0.5 1.1 1.1 1.1h8.8c0.6 0 1.1-0.5 1.1-1.1V7.1zM23 10h-9V7h9V10z"
-    }
-  }), _vm._v(" "), _c('path', {
-    staticClass: "undefined",
-    attrs: {
-      "d": "M24 1.1C24 0.5 23.5 0 22.9 0h-8.8C13.5 0 13 0.5 13 1.1v2.8C13 4.5 13.5 5 14.1 5h8.8C23.5 5 24 4.5 24 3.9V1.1zM23 4h-9V1h9V4z"
-    }
-  }), _vm._v(" "), _c('path', {
-    staticClass: "undefined",
-    attrs: {
-      "d": "M24 20.1c0-0.6-0.5-1.1-1.1-1.1h-8.8c-0.6 0-1.1 0.5-1.1 1.1v2.8c0 0.6 0.5 1.1 1.1 1.1h8.8c0.6 0 1.1-0.5 1.1-1.1V20.1zM23 23h-9v-3h9V23z"
-    }
-  }), _vm._v(" "), _c('path', {
-    staticClass: "undefined",
-    attrs: {
-      "d": "M24 14.1c0-0.6-0.5-1.1-1.1-1.1h-8.8c-0.6 0-1.1 0.5-1.1 1.1v2.8c0 0.6 0.5 1.1 1.1 1.1h8.8c0.6 0 1.1-0.5 1.1-1.1V14.1zM23 17h-9v-3h9V17z"
+      "d": "M817,245 L817,253 C817,251.941162 818.964988,251.002076 820.5,251.002075 C822.035012,251.002075 824,252.058105 824,253 L824,245 C824,243.895431 822.052002,242.974609 820.5,242.974609 C818.947998,242.974609 817,243.895431 817,245 Z M818,245.4 C818,244.626801 819.391427,243.982227 820.5,243.982227 C821.608573,243.982227 823,244.626801 823,245.4 L823,251 C823,250.340674 821.596437,250.004822 820.5,250.004822 C819.403563,250.004822 818,250.258813 818,251 Z M824,245 C824,243.895431 825.947998,242.974609 827.5,242.974609 C829.052002,242.974609 831,243.895431 831,245 L831,253 C831,252.058105 829.035012,251.002075 827.5,251.002075 C825.964988,251.002076 824,251.941162 824,253 Z M825,245.4 L825,251 C825,250.258813 826.403563,250.004822 827.5,250.004822 C828.596437,250.004822 830,250.340674 830,251 L830,245.4 C830,244.626801 828.608573,243.982227 827.5,243.982227 C826.391427,243.982227 825,244.626801 825,245.4 Z M825,245.4",
+      "id": "Rectangle 310"
     }
   })])])]), _vm._v(" "), _c('router-link', {
     attrs: {
-      "to": "/work"
+      "to": "/work",
+      "data-ot": "My Portfolio"
     }
   }, [_c('svg', {
     attrs: {
-      "height": "91px",
+      "height": "50px",
       "version": "1.1",
       "viewBox": "0 0 91 91",
-      "width": "91px",
+      "width": "50px",
       "xml:space": "preserve",
       "xmlns": "http://www.w3.org/2000/svg",
       "xmlns:xlink": "http://www.w3.org/1999/xlink"
@@ -29771,7 +29752,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   })])])]), _vm._v(" "), _c('router-link', {
     attrs: {
-      "to": "/contact"
+      "to": "/contact",
+      "data-ot": "Contact Me!"
     }
   }, [_c('svg', {
     attrs: {
@@ -29813,12 +29795,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.parseJson), function(project) {
     return _c('div', {
       staticClass: "work"
-    }, [_c('img', {
+    }, [_c('div', {
       staticClass: "image",
-      attrs: {
-        "src": project.covers.original,
-        "alt": project.name
-      }
+      style: ('background-image: url(' + project.covers.original + ')')
     }), _vm._v(" "), _c('a', {
       attrs: {
         "href": project.short_url

@@ -1,7 +1,8 @@
 <template>
     <div id="my-work">
         <div class="work" v-for="project in parseJson">
-            <img class="image" :src="project.covers.original" :alt="project.name" />
+            <!--<img class="image" :src="project.covers.original" :alt="project.name" />-->
+            <div class="image" :style="'background-image: url('+ project.covers.original +')'"></div>
             <a :href="project.short_url">
                 <div class="overlay">
                     <div class="text">{{ project.name }}</div>
@@ -31,12 +32,16 @@
         width: calc(50% - 2px);
         height: auto;
         margin: 1px;
+        background: #000;
     }
 
     .image {
         display: block;
         width: 100%;
-        height: auto;
+        height: 200px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
     }
 
     .overlay {

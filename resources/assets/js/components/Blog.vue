@@ -77,28 +77,32 @@
                 font-weight: 300;
                 line-height: 1.5rem;
                 color: #000;
+                padding-bottom: 25px;
             }
 
             .readMore {
-                text-align: left;
+                position: absolute;
+                bottom: 0;
+                right: 0;
                 text-decoration: none;
                 color: teal;
-                margin-bottom: 25px;
+                padding: 25px;
             }
         }
+    }
 
-        .actions {
-            padding: 15px;
+    @media screen and (min-width: 769px) {
+        #my-posts {
+            position: relative;
+            margin-top: 50px;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+            align-content: center;
 
-            ul {
-                list-style: none !important;
-                display: flex;
-                flex-direction: row;
-                justify-content: space-around;
-
-                li {
-                    margin: 10px;
-                }
+            .card {
+                flex: 1 200px;
+                margin: 10px;
             }
         }
     }
