@@ -10941,7 +10941,6 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
         }
     },
     created: function created() {
-        //console.log("session started");
         if (this.$session.exists()) {
             this.posts = this.$session.get('posts');
             this.projects = this.$session.get('projects');
@@ -10950,8 +10949,8 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
             this.getPosts();
             this.getProjects();
             this.$session.start();
-            this.$session.set('posts', this.posts);
-            this.$session.set('projects', this.projects);
+            this.$session.set('posts', app.posts);
+            this.$session.set('projects', app.projects);
             console.log('session started');
         }
     }
