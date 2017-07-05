@@ -11835,13 +11835,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return str.replace(/(<p>|<\/p>)/g, '');
             }
         },
-        date: function date(_date) {
-            if (_date === null) {
-                return '';
-            } else {
-                var d = new Date(_date);
-                return d.toDateString();
-            }
+        date: function date(timestamp) {
+            var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            var d = new Date(timestamp);
+            return d.toLocaleDateString('en-US', options);
         }
     }
 });

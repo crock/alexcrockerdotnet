@@ -28,13 +28,10 @@
                     return str.replace(/(<p>|<\/p>)/g, '')
                 }
             },
-            date: function (date) {
-                if (date === null) {
-                    return ''
-                } else {
-                    let d = new Date(date);
-                    return d.toDateString();
-                }
+            date: function (timestamp) {
+                    let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                    let d = new Date(timestamp);
+                    return d.toLocaleDateString('en-US', options);
             }
         }
     }
