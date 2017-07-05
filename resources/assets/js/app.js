@@ -30,8 +30,6 @@ Vue.component('profile', require('./components/Profile.vue'));
 const app = new Vue({
     el: '#app',
     data: {
-        posts: {},
-        projects: {},
         works: [
             {title: 'Alpha', img: 'https://placehold.it/250x250', imgAlt: 'work 1'},
             {title: 'Bravo', img: 'https://placehold.it/250x250', imgAlt: 'work 2'},
@@ -44,7 +42,7 @@ const app = new Vue({
         getPosts: function () {
             axios.get('/api/posts')
                 .then(function (response) {
-                    app.posts = response.data.posts
+                    return response.data.posts
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -53,7 +51,7 @@ const app = new Vue({
         getProjects: function () {
             axios.get('/api/projects')
                 .then(function (response) {
-                    app.projects = response.data
+                    return response.data
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -66,12 +64,14 @@ const app = new Vue({
             this.projects = this.$session.get('projects');
             console.log("session data restored");
         } else {
-            this.getPosts();
-            this.getProjects();
             this.$session.start();
-            this.$session.set('posts', app.posts);
-            this.$session.set('projects', app.projects);
-            console.log('session started');
+            this.$session.set('posts', this.getPosts());
+            this.$session.set('projects', this.getProjects());
+            console.log('session data set');
         }
+    },
+    destroyed () {
+        this.$session.destroy();
+        console.log('session destroyed');
     }
 });

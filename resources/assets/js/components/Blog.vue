@@ -1,6 +1,6 @@
 <template>
     <div id="my-posts">
-        <div class="card" v-for="post in this.$parent.posts">
+        <div class="card" v-for="post in this.$session.get('posts')">
             <div class="heading">
                 <h3>{{ post.title }}</h3>
                 <div class="datetime">{{ post.date | date }}</div>

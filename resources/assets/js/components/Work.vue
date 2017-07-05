@@ -1,6 +1,6 @@
 <template>
     <div id="my-work">
-        <div class="work" v-for="project in this.$parent.projects">
+        <div class="work" v-for="project in this.$session.get('projects')">
             <img class="image" :src="project.covers.original" :alt="project.name" />
             <a :href="project.short_url">
                 <div class="overlay">

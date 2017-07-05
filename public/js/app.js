@@ -10919,22 +10919,20 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('profile', __webpack_requi
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: '#app',
     data: {
-        posts: {},
-        projects: {},
         works: [{ title: 'Alpha', img: 'https://placehold.it/250x250', imgAlt: 'work 1' }, { title: 'Bravo', img: 'https://placehold.it/250x250', imgAlt: 'work 2' }, { title: 'Charlie', img: 'https://placehold.it/250x250', imgAlt: 'work 3' }, { title: 'Delta', img: 'https://placehold.it/250x250', imgAlt: 'work 4' }]
     },
     router: __WEBPACK_IMPORTED_MODULE_2__router__["a" /* default */],
     methods: {
         getPosts: function getPosts() {
             __WEBPACK_IMPORTED_MODULE_3_axios___default.a.get('/api/posts').then(function (response) {
-                app.posts = response.data.posts;
+                return response.data.posts;
             }).catch(function (error) {
                 console.log(error);
             });
         },
         getProjects: function getProjects() {
             __WEBPACK_IMPORTED_MODULE_3_axios___default.a.get('/api/projects').then(function (response) {
-                app.projects = response.data;
+                return response.data;
             }).catch(function (error) {
                 console.log(error);
             });
@@ -10946,13 +10944,15 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
             this.projects = this.$session.get('projects');
             console.log("session data restored");
         } else {
-            this.getPosts();
-            this.getProjects();
             this.$session.start();
-            this.$session.set('posts', app.posts);
-            this.$session.set('projects', app.projects);
-            console.log('session started');
+            this.$session.set('posts', this.getPosts());
+            this.$session.set('projects', this.getProjects());
+            console.log('session data set');
         }
+    },
+    destroyed: function destroyed() {
+        this.$session.destroy();
+        console.log('session destroyed');
     }
 });
 
@@ -29636,7 +29636,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "id": "my-posts"
     }
-  }, _vm._l((this.$parent.posts), function(post) {
+  }, _vm._l((this.$session.get('posts')), function(post) {
     return _c('div', {
       staticClass: "card"
     }, [_c('div', {
@@ -29777,7 +29777,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "id": "my-work"
     }
-  }, _vm._l((this.$parent.projects), function(project) {
+  }, _vm._l((this.$session.get('projects')), function(project) {
     return _c('div', {
       staticClass: "work"
     }, [_c('img', {
