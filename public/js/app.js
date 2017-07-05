@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 63);
+/******/ 	return __webpack_require__(__webpack_require__.s = 64);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -505,7 +505,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(61)
+var listToStyles = __webpack_require__(62)
 
 /*
 type StyleObject = {
@@ -805,7 +805,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(44)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(45)))
 
 /***/ }),
 /* 5 */
@@ -10884,7 +10884,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_session__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_session___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_session__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__router__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__router__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_axios__);
 
@@ -10894,7 +10894,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(36);
+__webpack_require__(37);
 
 window.Vue = __webpack_require__(5);
 window.VueSession = __webpack_require__(12);
@@ -10907,14 +10907,18 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 
 
 
+var myAxios = __WEBPACK_IMPORTED_MODULE_3_axios___default.a.create({
+    baseURL: 'http://mysite.app/'
+});
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('navbar', __webpack_require__(47));
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('profile', __webpack_require__(48));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('navbar', __webpack_require__(48));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('profile', __webpack_require__(49));
 
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: '#app',
@@ -10924,15 +10928,15 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     router: __WEBPACK_IMPORTED_MODULE_2__router__["a" /* default */],
     methods: {
         getPosts: function getPosts() {
-            __WEBPACK_IMPORTED_MODULE_3_axios___default.a.get('/api/posts').then(function (response) {
-                return JSON.stringify(response.data.posts);
+            myAxios.get('api/posts').then(function (response) {
+                app.$session.set('posts', JSON.stringify(response.data.posts));
             }).catch(function (error) {
                 console.log(error);
             });
         },
         getProjects: function getProjects() {
-            __WEBPACK_IMPORTED_MODULE_3_axios___default.a.get('/api/projects').then(function (response) {
-                return JSON.stringify(response.data);
+            myAxios.get('api/projects').then(function (response) {
+                app.$session.set('projects', JSON.stringify(response.data));
             }).catch(function (error) {
                 console.log(error);
             });
@@ -10940,21 +10944,17 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     },
     created: function created() {
         if (this.$session.exists()) {
-            this.posts = this.$session.get('posts');
-            this.projects = this.$session.get('projects');
             console.log("session data restored");
         } else {
             this.$session.start();
-            var posts = JSON.parse(this.getPosts());
-            var projects = JSON.parse(this.getProjects());
-            this.$session.set('posts', posts);
-            this.$session.set('projects', projects);
+            this.getPosts();
+            this.getProjects();
             console.log('session data set');
         }
     },
     destroyed: function destroyed() {
         this.$session.destroy();
-        console.log('session destroyed');
+        console.log("session destroyed");
     }
 });
 
@@ -11822,6 +11822,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    computed: {
+        parseJson: function parseJson() {
+            return JSON.parse(this.$session.get('posts'));
+        }
+    },
     filters: {
         stripTags: function stripTags(str) {
             if (str === null) {
@@ -11924,10 +11929,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 /* 36 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    computed: {
+        parseJson: function parseJson() {
+            return JSON.parse(this.$session.get('projects'));
+        }
+    }
+});
+
+/***/ }),
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-window._ = __webpack_require__(43);
+window._ = __webpack_require__(44);
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -11969,13 +12002,13 @@ if (token) {
 // });
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(56);
 
 
 
@@ -11985,7 +12018,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 //const Work = () => require('./components/Work.vue');
 //const Contact = () => require('./components/Contact.vue');
 
-var routes = [{ path: '/blog', component: __webpack_require__(45) }, { path: '/work', component: __webpack_require__(49) }, { path: '/contact', component: __webpack_require__(46) }];
+var routes = [{ path: '/blog', component: __webpack_require__(46) }, { path: '/work', component: __webpack_require__(50) }, { path: '/contact', component: __webpack_require__(47) }];
 
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
     mode: 'history',
@@ -11996,42 +12029,42 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
 /* harmony default export */ __webpack_exports__["a"] = (router);
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
 exports.push([module.i, "\n#contact {\n  position: relative;\n  margin-top: 50px;\n  padding: 25px;\n  width: 100%;\n}\n#contact h3 {\n    display: block;\n    font-size: 30px;\n    font-weight: 300;\n    margin-bottom: 10px;\n}\n#contact h4 {\n    margin: 5px 0 15px;\n    display: block;\n    font-size: 13px;\n    font-weight: 400;\n}\n#contact input[type=\"text\"],\n  #contact input[type=\"email\"],\n  #contact input[type=\"tel\"],\n  #contact input[type=\"url\"],\n  #contact textarea,\n  #contact button[type=\"submit\"] {\n    font: 400 12px/16px \"Roboto\", Helvetica, Arial, sans-serif;\n}\n#contact fieldset {\n    border: medium none !important;\n    margin: 0 0 10px;\n    min-width: 100%;\n    padding: 0;\n    width: 100%;\n}\n#contact input[type=\"text\"],\n  #contact input[type=\"email\"],\n  #contact input[type=\"tel\"],\n  #contact input[type=\"url\"],\n  #contact textarea {\n    width: 100%;\n    border: 1px solid #ccc;\n    background: #FFF;\n    margin: 0 0 5px;\n    padding: 10px;\n}\n#contact input[type=\"text\"]:hover,\n  #contact input[type=\"email\"]:hover,\n  #contact input[type=\"tel\"]:hover,\n  #contact input[type=\"url\"]:hover,\n  #contact textarea:hover {\n    transition: border-color 0.3s ease-in-out;\n    border: 1px solid #aaa;\n}\n#contact textarea {\n    height: 100px;\n    max-width: 100%;\n    resize: none;\n}\n#contact button[type=\"submit\"] {\n    cursor: pointer;\n    width: 100%;\n    border: none;\n    background: teal;\n    color: #FFF;\n    margin: 0 0 5px;\n    padding: 10px;\n    font-size: 15px;\n}\n#contact button[type=\"submit\"]:hover {\n    background: #43A047;\n    transition: background-color 0.3s ease-in-out;\n}\n#contact button[type=\"submit\"]:active {\n    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);\n}\n#contact input:focus,\n  #contact textarea:focus {\n    outline: 0;\n    border: 1px solid #aaa;\n}\n::-webkit-input-placeholder {\n  color: #888;\n}\n:-moz-placeholder {\n  color: #888;\n}\n::-moz-placeholder {\n  color: #888;\n}\n:-ms-input-placeholder {\n  color: #888;\n}\n", ""]);
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
 exports.push([module.i, "\n#banner {\n  position: relative;\n  top: 50px;\n  width: 100%;\n  height: 200px;\n  background: #6a2bd8;\n  background: linear-gradient(to right, #6a2bd8 0%, #3122d6 50%, #5b97ff 100%);\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6a2bd8', endColorstr='#5b97ff',GradientType=1 );\n}\n#pfp {\n  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/392079/specs.jpg);\n  background-repeat: no-repeat;\n  background-position: center center;\n  width: 200px;\n  height: 200px;\n  border-radius: 50%;\n  border: 6px solid #fff;\n  position: absolute;\n  top: 150px;\n  left: 0;\n  right: 0;\n  margin: 0 auto;\n}\n#profile-info {\n  width: 100%;\n  height: 200px;\n  margin-top: 150px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n#profile-info h1 {\n    font-weight: 900;\n    font-size: 2rem;\n    color: #000;\n    margin-bottom: 0;\n    margin-top: 40px;\n}\n#profile-info h2 {\n    font-weight: 300;\n    font-size: 1.1rem;\n    color: #9B9B9B;\n    margin-bottom: 0;\n}\n.social-icons {\n  -webkit-box-flex: 2;\n      -ms-flex: 2;\n          flex: 2;\n  width: 75%;\n  margin: 0 auto;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-flow: row nowrap;\n          flex-flow: row nowrap;\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  text-align: center;\n}\n.social-icons a span {\n    color: #9B9B9B;\n}\n.social-icons a:hover span {\n    color: teal;\n}\n", ""]);
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
 exports.push([module.i, "\n#my-posts {\n  position: relative;\n  width: 90%;\n  margin: 50px auto 50px auto;\n}\n.card {\n  position: relative;\n  margin-top: 25px;\n  width: 100%;\n  min-height: 200px;\n  background: #fff;\n  box-shadow: 1px 1px 10px #B5B4B6;\n  padding: 15px;\n}\n.card .heading {\n    padding: 15px;\n}\n.card .heading h3 {\n      font-size: 2rem;\n      font-weight: 300;\n      color: teal;\n}\n.card .heading .datetime {\n      color: #9B9B9B;\n      font-style: italic;\n      font-size: 1rem;\n}\n.card .content {\n    padding: 15px;\n}\n.card .content p {\n      font-weight: 300;\n      line-height: 1.5rem;\n      color: #000;\n}\n.card .content .readMore {\n      text-align: left;\n      text-decoration: none;\n      color: teal;\n      margin-bottom: 25px;\n}\n.card .actions {\n    padding: 15px;\n}\n.card .actions ul {\n      list-style: none !important;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: horizontal;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: row;\n              flex-direction: row;\n      -ms-flex-pack: distribute;\n          justify-content: space-around;\n}\n.card .actions ul li {\n        margin: 10px;\n}\n", ""]);
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
 exports.push([module.i, "\nnav {\n  width: 100%;\n  height: 50px;\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  background: #fff;\n  z-index: 1000;\n}\nnav div {\n    width: 80%;\n    height: inherit;\n    margin: 0 auto;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-flow: row nowrap;\n            flex-flow: row nowrap;\n    -ms-flex-pack: distribute;\n        justify-content: space-around;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\nnav div a:nth-of-type(1) svg {\n      width: 21px;\n      height: auto;\n}\nnav div a:nth-of-type(2) svg {\n      width: 40px;\n      height: auto;\n}\nnav div a:nth-of-type(3) svg {\n      width: 22px;\n      height: auto;\n}\nnav div a:hover svg {\n      fill: teal;\n}\n", ""]);
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
 exports.push([module.i, "\n#my-work {\n  position: relative;\n  margin-top: 50px;\n}\n.work {\n  position: relative;\n  width: calc(50% - 2px);\n  height: auto;\n  margin: 1px;\n}\n.image {\n  display: block;\n  width: 100%;\n  height: auto;\n}\n.overlay {\n  position: absolute;\n  bottom: 100%;\n  left: 0;\n  right: 0;\n  background-color: #008CBA;\n  overflow: hidden;\n  width: 100%;\n  height: 0;\n  transition: .5s ease;\n}\n.work:hover .overlay {\n  bottom: 0;\n  height: 100%;\n}\n.text {\n  white-space: nowrap;\n  color: white;\n  font-size: 20px;\n  position: absolute;\n  overflow: hidden;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n}\n@media screen and (max-width: 768px) {\n#my-work {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-flow: row wrap;\n            flex-flow: row wrap;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n}\n}\n@media screen and (min-width: 769px) {\n#my-work {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-flow: row wrap;\n            flex-flow: row wrap;\n    -ms-flex-pack: distribute;\n        justify-content: space-around;\n}\n#my-work img {\n    width: 250xp;\n    height: 250px;\n    margin: 25px 0;\n}\n}\n", ""]);
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -29120,10 +29153,10 @@ exports.push([module.i, "\n#my-work {\n  position: relative;\n  margin-top: 50px
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13), __webpack_require__(62)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13), __webpack_require__(63)(module)))
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -29313,18 +29346,18 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(58)
+__webpack_require__(59)
 
 var Component = __webpack_require__(2)(
   /* script */
   __webpack_require__(33),
   /* template */
-  __webpack_require__(52),
+  __webpack_require__(53),
   /* scopeId */
   null,
   /* cssModules */
@@ -29351,18 +29384,18 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(56)
+__webpack_require__(57)
 
 var Component = __webpack_require__(2)(
   /* script */
   __webpack_require__(34),
   /* template */
-  __webpack_require__(50),
+  __webpack_require__(51),
   /* scopeId */
   null,
   /* cssModules */
@@ -29389,18 +29422,18 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(59)
+__webpack_require__(60)
 
 var Component = __webpack_require__(2)(
   /* script */
   null,
   /* template */
-  __webpack_require__(53),
+  __webpack_require__(54),
   /* scopeId */
   null,
   /* cssModules */
@@ -29427,18 +29460,18 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(57)
+__webpack_require__(58)
 
 var Component = __webpack_require__(2)(
   /* script */
   __webpack_require__(35),
   /* template */
-  __webpack_require__(51),
+  __webpack_require__(52),
   /* scopeId */
   null,
   /* cssModules */
@@ -29465,18 +29498,18 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(60)
+__webpack_require__(61)
 
 var Component = __webpack_require__(2)(
   /* script */
-  null,
+  __webpack_require__(36),
   /* template */
-  __webpack_require__(54),
+  __webpack_require__(55),
   /* scopeId */
   null,
   /* cssModules */
@@ -29503,7 +29536,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -29579,7 +29612,7 @@ if (false) {
 }
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -29630,7 +29663,7 @@ if (false) {
 }
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -29638,7 +29671,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "id": "my-posts"
     }
-  }, _vm._l((this.$session.get('posts')), function(post) {
+  }, _vm._l((_vm.parseJson), function(post) {
     return _c('div', {
       staticClass: "card"
     }, [_c('div', {
@@ -29664,7 +29697,7 @@ if (false) {
 }
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -29771,7 +29804,7 @@ if (false) {
 }
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -29779,7 +29812,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "id": "my-work"
     }
-  }, _vm._l((this.$session.get('projects')), function(project) {
+  }, _vm._l((_vm.parseJson), function(project) {
     return _c('div', {
       staticClass: "work"
     }, [_c('img', {
@@ -29808,7 +29841,7 @@ if (false) {
 }
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -32320,13 +32353,13 @@ if (inBrowser && window.Vue) {
 
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(38);
+var content = __webpack_require__(39);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -32346,13 +32379,13 @@ if(false) {
 }
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(39);
+var content = __webpack_require__(40);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -32372,13 +32405,13 @@ if(false) {
 }
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(40);
+var content = __webpack_require__(41);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -32398,13 +32431,13 @@ if(false) {
 }
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(41);
+var content = __webpack_require__(42);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -32424,13 +32457,13 @@ if(false) {
 }
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(42);
+var content = __webpack_require__(43);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -32450,7 +32483,7 @@ if(false) {
 }
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports) {
 
 /**
@@ -32483,7 +32516,7 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -32511,7 +32544,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(14);

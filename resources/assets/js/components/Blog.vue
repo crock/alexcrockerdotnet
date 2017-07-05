@@ -1,6 +1,6 @@
 <template>
     <div id="my-posts">
-        <div class="card" v-for="post in this.$session.get('posts')">
+        <div class="card" v-for="post in parseJson">
             <div class="heading">
                 <h3>{{ post.title }}</h3>
                 <div class="datetime">{{ post.date | date }}</div>
@@ -15,6 +15,11 @@
 
 <script>
     export default {
+        computed: {
+          parseJson: function () {
+              return JSON.parse(this.$session.get('posts'));
+          }
+        },
         filters: {
             stripTags: function (str) {
                 if (str === null) {
@@ -27,7 +32,7 @@
                 if (date === null) {
                     return ''
                 } else {
-                    var d = new Date(date);
+                    let d = new Date(date);
                     return d.toDateString();
                 }
             }

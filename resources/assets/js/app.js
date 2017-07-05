@@ -18,6 +18,10 @@ Vue.use(VueSession);
 import router from './router'
 import axios from 'axios'
 
+var myAxios = axios.create({
+    baseURL: 'http://mysite.app/'
+});
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -40,18 +44,18 @@ const app = new Vue({
     router,
     methods: {
         getPosts: function () {
-            axios.get('/api/posts')
+            myAxios.get('api/posts')
                 .then(function (response) {
-                    return JSON.stringify(response.data.posts)
+                    app.$session.set('posts', JSON.stringify(response.data.posts))
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
         },
         getProjects: function () {
-            axios.get('/api/projects')
+            myAxios.get('api/projects')
                 .then(function (response) {
-                    return JSON.stringify(response.data);
+                    app.$session.set('projects', JSON.stringify(response.data))
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -60,20 +64,16 @@ const app = new Vue({
     },
     created () {
         if (this.$session.exists()) {
-            this.posts = this.$session.get('posts');
-            this.projects = this.$session.get('projects');
             console.log("session data restored");
         } else {
             this.$session.start();
-            let posts = JSON.parse(this.getPosts());
-            let projects = JSON.parse(this.getProjects());
-            this.$session.set('posts', posts);
-            this.$session.set('projects', projects);
+            this.getPosts();
+            this.getProjects();
             console.log('session data set');
         }
     },
     destroyed () {
         this.$session.destroy();
-        console.log('session destroyed');
+        console.log("session destroyed");
     }
 });

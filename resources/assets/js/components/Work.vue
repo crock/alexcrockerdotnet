@@ -1,6 +1,6 @@
 <template>
     <div id="my-work">
-        <div class="work" v-for="project in this.$session.get('projects')">
+        <div class="work" v-for="project in parseJson">
             <img class="image" :src="project.covers.original" :alt="project.name" />
             <a :href="project.short_url">
                 <div class="overlay">
@@ -10,6 +10,16 @@
         </div>
     </div>
 </template>
+
+<script>
+    export default {
+        computed: {
+            parseJson: function () {
+                return JSON.parse(this.$session.get('projects'));
+            }
+        }
+    }
+</script>
 
 <style lang="scss">
     #my-work {
