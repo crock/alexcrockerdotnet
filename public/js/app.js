@@ -10925,14 +10925,14 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     methods: {
         getPosts: function getPosts() {
             __WEBPACK_IMPORTED_MODULE_3_axios___default.a.get('/api/posts').then(function (response) {
-                return response.data.posts;
+                return JSON.stringify(response.data.posts);
             }).catch(function (error) {
                 console.log(error);
             });
         },
         getProjects: function getProjects() {
             __WEBPACK_IMPORTED_MODULE_3_axios___default.a.get('/api/projects').then(function (response) {
-                return response.data;
+                return JSON.stringify(response.data);
             }).catch(function (error) {
                 console.log(error);
             });
@@ -10945,8 +10945,10 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
             console.log("session data restored");
         } else {
             this.$session.start();
-            this.$session.set('posts', this.getPosts());
-            this.$session.set('projects', this.getProjects());
+            var posts = JSON.parse(this.getPosts());
+            var projects = JSON.parse(this.getProjects());
+            this.$session.set('posts', posts);
+            this.$session.set('projects', projects);
             console.log('session data set');
         }
     },

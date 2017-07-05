@@ -42,7 +42,7 @@ const app = new Vue({
         getPosts: function () {
             axios.get('/api/posts')
                 .then(function (response) {
-                    return response.data.posts
+                    return JSON.stringify(response.data.posts)
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -51,7 +51,7 @@ const app = new Vue({
         getProjects: function () {
             axios.get('/api/projects')
                 .then(function (response) {
-                    return response.data
+                    return JSON.stringify(response.data);
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -65,8 +65,10 @@ const app = new Vue({
             console.log("session data restored");
         } else {
             this.$session.start();
-            this.$session.set('posts', this.getPosts());
-            this.$session.set('projects', this.getProjects());
+            let posts = JSON.parse(this.getPosts());
+            let projects = JSON.parse(this.getProjects());
+            this.$session.set('posts', posts);
+            this.$session.set('projects', projects);
             console.log('session data set');
         }
     },
