@@ -8,6 +8,12 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+window.VueSession = require('vue-session');
+
+import Vue from 'vue'
+import VueSession from 'vue-session'
+
+Vue.use(VueSession);
 
 import router from './router'
 import axios from 'axios'
@@ -38,7 +44,7 @@ const app = new Vue({
         getPosts: function () {
             axios.get('/api/posts')
                 .then(function (response) {
-                    app.posts = response.data.posts;
+                    return JSON.stringify(response.data.posts);
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -47,7 +53,7 @@ const app = new Vue({
         getProjects: function () {
             axios.get('/api/projects')
                 .then(function (response) {
-                    app.projects = response.data;
+                    return JSON.stringify(response.data);
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -55,7 +61,20 @@ const app = new Vue({
         }
     },
     created () {
-        this.getPosts();
-        this.getProjects();
+        this.$session.start();
+        if ( this.$session.has('posts') && this.$session.has('projects') ) {
+            app.posts = JSON.parse(this.$session.get('posts'));
+            app.projects = JSON.parse(this.$session.get('projects'));
+            console.log('retrieved data from session');
+        } else {
+            console.log(this.getPosts());
+            this.$session.set('posts', this.getPosts());
+            this.$session.set('projects', this.getProjects());
+            console.log('set session data');
+        }
+    },
+    destroyed () {
+        this.$session.destroy();
+        console.log("session destroyed");
     }
 });
