@@ -29678,7 +29678,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "heading"
     }, [_c('h3', [_vm._v(_vm._s(post.title))]), _vm._v(" "), _c('div', {
       staticClass: "datetime"
-    }, [_vm._v(_vm._s(_vm._f("date")(post.date)))])]), _vm._v(" "), _c('div', {
+    }, [_vm._v(_vm._s(_vm._f("date")(post.timestamp)))])]), _vm._v(" "), _c('div', {
       staticClass: "content"
     }, [_c('p', [_vm._v(_vm._s(_vm._f("stripTags")(post.body_abstract)))]), _vm._v(" "), _c('a', {
       staticClass: "readMore",

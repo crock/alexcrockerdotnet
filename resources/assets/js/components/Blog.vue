@@ -3,7 +3,7 @@
         <div class="card" v-for="post in parseJson">
             <div class="heading">
                 <h3>{{ post.title }}</h3>
-                <div class="datetime">{{ post.date | date }}</div>
+                <div class="datetime">{{ post.timestamp | date }}</div>
             </div>
             <div class="content">
                 <p>{{ post.body_abstract | stripTags }}</p>
