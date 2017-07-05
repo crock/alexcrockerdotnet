@@ -19,7 +19,7 @@ import router from './router'
 import axios from 'axios'
 
 var myAxios = axios.create({
-    baseURL: 'http://mysite.app/'
+    baseURL: 'http://beta.alexcrocker.net/'
 });
 
 /**

@@ -10908,7 +10908,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 
 
 var myAxios = __WEBPACK_IMPORTED_MODULE_3_axios___default.a.create({
-    baseURL: 'http://mysite.app/'
+    baseURL: 'http://beta.alexcrocker.net/'
 });
 
 /**
