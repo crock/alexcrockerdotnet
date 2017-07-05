@@ -10927,35 +10927,33 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     methods: {
         getPosts: function getPosts() {
             __WEBPACK_IMPORTED_MODULE_3_axios___default.a.get('/api/posts').then(function (response) {
-                return JSON.stringify(response.data.posts);
+                app.posts = response.data.posts;
             }).catch(function (error) {
                 console.log(error);
             });
         },
         getProjects: function getProjects() {
             __WEBPACK_IMPORTED_MODULE_3_axios___default.a.get('/api/projects').then(function (response) {
-                return JSON.stringify(response.data);
+                app.projects = response.data;
             }).catch(function (error) {
                 console.log(error);
             });
         }
     },
     created: function created() {
-        this.$session.start();
-        if (this.$session.has('posts') && this.$session.has('projects')) {
-            app.posts = JSON.parse(this.$session.get('posts'));
-            app.projects = JSON.parse(this.$session.get('projects'));
-            console.log('retrieved data from session');
+        //console.log("session started");
+        if (this.$session.exists()) {
+            this.posts = this.$session.get('posts');
+            this.projects = this.$session.get('projects');
+            console.log("session data restored");
         } else {
-            console.log(this.getPosts());
-            this.$session.set('posts', this.getPosts());
-            this.$session.set('projects', this.getProjects());
-            console.log('set session data');
+            this.getPosts();
+            this.getProjects();
+            this.$session.start();
+            this.$session.set('posts', this.posts);
+            this.$session.set('projects', this.projects);
+            console.log('session started');
         }
-    },
-    destroyed: function destroyed() {
-        this.$session.destroy();
-        console.log("session destroyed");
     }
 });
 
