@@ -3,7 +3,7 @@
         <div class="card" v-for="post in parseJson">
             <div class="heading">
                 <h3>{{ post.title }}</h3>
-                <div class="datetime">{{ post.timestamp | date }}</div>
+                <div class="datetime">{{ post.date | date }}</div>
             </div>
             <div class="content">
                 <p>{{ post.body_abstract | stripTags }}</p>
@@ -28,9 +28,10 @@
                     return str.replace(/(<p>|<\/p>)/g, '')
                 }
             },
-            date: function (timestamp) {
+            date: function (dateString) {
                     let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-                    let d = new Date(timestamp);
+                    let date = dateString.match(/^\d\d\d\d-\d\d-\d\d/);
+                    let d = new Date(date[0]);
                     return d.toLocaleDateString('en-US', options);
             }
         }
