@@ -6,7 +6,7 @@
                 <div class="datetime">{{ post.date | date }}</div>
             </div>
             <div class="content">
-                <p>{{ post.body_abstract | stripTags }}</p>
+                <p v-html="post.body_abstract"></p>
                 <a :href="post.short_url" class="readMore">Read More</a>
             </div>
         </div>
@@ -14,6 +14,8 @@
 </template>
 
 <script>
+    import marked from 'marked'
+
     export default {
         computed: {
           parseJson: function () {
@@ -21,6 +23,24 @@
           }
         },
         filters: {
+            markdownify: function (md) {
+                marked.setOptions({
+                    renderer: new marked.Renderer(),
+                    gfm: true,
+                    tables: true,
+                    breaks: true,
+                    pedantic: false,
+                    sanitize: false,
+                    smartLists: true,
+                    smartypants: true
+                });
+
+                if (md === null) {
+                    return ''
+                } else {
+                    return marked(md)
+                }
+            },
             stripTags: function (str) {
                 if (str === null) {
                     return ''

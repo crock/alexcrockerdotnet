@@ -18,6 +18,7 @@
     "vue-router": "^2.7.0"
   },
   "dependencies": {
+    "marked": "^0.3.6",
     "vue-session": "^0.9.4"
   }
 }

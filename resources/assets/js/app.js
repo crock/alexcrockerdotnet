@@ -12,14 +12,13 @@ window.VueSession = require('vue-session');
 
 import Vue from 'vue'
 import VueSession from 'vue-session'
-
-Vue.use(VueSession);
-
 import router from './router'
 import axios from 'axios'
 
-var myAxios = axios.create({
-    baseURL: 'http://beta.alexcrocker.net/'
+Vue.use(VueSession);
+
+const myAxios = axios.create({
+    baseURL: 'https://alexcrocker.net/'
 });
 
 /**
