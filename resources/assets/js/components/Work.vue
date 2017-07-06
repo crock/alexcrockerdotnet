@@ -1,9 +1,8 @@
 <template>
     <div id="my-work">
         <div class="work" v-for="project in parseJson">
-            <!--<img class="image" :src="project.covers.original" :alt="project.name" />-->
-            <div class="image" :style="'background-image: url('+ project.covers.original +')'"></div>
             <a :href="project.short_url">
+                <div class="image" :style="'background-image: url('+ project.covers.original +')'"></div>
                 <div class="overlay">
                     <div class="text">{{ project.name }}</div>
                 </div>
