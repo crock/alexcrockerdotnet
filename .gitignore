@@ -11,3 +11,4 @@ npm-debug.log
 .idea
 my-site.iml
 .env
+public/.DS_Store

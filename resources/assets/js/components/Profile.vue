@@ -7,11 +7,11 @@
             <h1>{{ this.fullName }}</h1>
             <h2>{{ this.jobTitle }}</h2>
 
-            <div class="social-icons">
-                <a :href="this.social.twitter"><span class="fa fa-twitter fa-2x"></span></a>
-                <a :href="this.social.github"><span class="fa fa-github fa-2x"></span></a>
-                <a :href="this.social.linkedin"><span class="fa fa-linkedin fa-2x"></span></a>
-            </div>
+            <!--<div class="social-icons">-->
+                <!--<a :href="this.social.twitter"><span class="fa fa-twitter fa-2x"></span></a>-->
+                <!--<a :href="this.social.github"><span class="fa fa-github fa-2x"></span></a>-->
+                <!--<a :href="this.social.linkedin"><span class="fa fa-linkedin fa-2x"></span></a>-->
+            <!--</div>-->
         </div>
     </div>
 </template>
@@ -46,9 +46,10 @@
     }
 
     #pfp {
-        background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/392079/specs.jpg);
+        background: url(/img/headshot500px.jpg);
         background-repeat: no-repeat;
         background-position: center center;
+        background-size: cover;
         width: 200px;
         height: 200px;
         border-radius: 50%;
@@ -62,11 +63,11 @@
 
     #profile-info {
         width: 100%;
-        height: 200px;
+        height: 160px;
         margin-top: 150px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
 
         h1 {
@@ -81,14 +82,15 @@
             font-weight: 300;
             font-size: 1.1rem;
             color: #9B9B9B;
+            margin-top: 10px;
             margin-bottom: 0;
         }
     }
 
     .social-icons {
         flex: 2;
-        width: 75%;
-        margin: 0 auto;
+        width: 50%;
+        margin: 50px auto;
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-around;

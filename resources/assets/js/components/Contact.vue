@@ -38,7 +38,6 @@
 <style lang="scss">
     #contact {
         position: relative;
-        margin-top: 50px;
         padding: 25px;
         width: 100%;
 

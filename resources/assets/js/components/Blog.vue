@@ -62,7 +62,7 @@
     #my-posts {
         position: relative;
         width: 90%;
-        margin: 50px auto 50px auto;
+        margin: 0 auto;
     }
 
     .card {
@@ -114,7 +114,6 @@
     @media screen and (min-width: 769px) {
         #my-posts {
             position: relative;
-            margin-top: 50px;
             display: flex;
             flex-flow: row wrap;
             justify-content: space-around;

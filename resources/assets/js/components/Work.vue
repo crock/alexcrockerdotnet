@@ -24,7 +24,6 @@
 <style lang="scss">
     #my-work {
         position: relative;
-        margin-top: 50px;
     }
     .work {
         position: relative;

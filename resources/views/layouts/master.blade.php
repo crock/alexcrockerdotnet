@@ -10,10 +10,10 @@
     <link rel="shortcut icon" href="{{ asset("favicon.ico") }}" type="image/x-icon"/>
     <link rel="shortcut icon" href="{{ asset("favicon.png") }}" type="image/png"/>
 
-    <title>Alex Crocker - @yield('title')</title>
+    <title>Alex Crocker</title>
 
     <!-- SEO Stuff -->
-    <meta name="description" content="Full Stack Developer for hire">
+    <meta name="description" content="Full Stack Web Developer &amp; tech enthusiast">
     <meta name="keywords" content="alex crocker, web developer, web designer, full stack, full stack developer, web dev, developer portfolio, vue.js website, laravel website">
     <meta name="author" content="Alex Crocker">
 
@@ -28,7 +28,12 @@
         <navbar></navbar> 
         <profile></profile>
     @show
-        @yield('content') 
+        @yield('content')
+        <div class="social-icons">
+            <a :href="this.social.twitter"><span class="fa fa-twitter fa-2x"></span></a>
+            <a :href="this.social.github"><span class="fa fa-github fa-2x"></span></a>
+            <a :href="this.social.linkedin"><span class="fa fa-linkedin fa-2x"></span></a>
+        </div>
     </div>
 
     <script src="{{ asset("js/app.js") }}" type="text/javascript"></script>

@@ -38,7 +38,12 @@ const app = new Vue({
             {title: 'Bravo', img: 'https://placehold.it/250x250', imgAlt: 'work 2'},
             {title: 'Charlie', img: 'https://placehold.it/250x250', imgAlt: 'work 3'},
             {title: 'Delta', img: 'https://placehold.it/250x250', imgAlt: 'work 4'}
-        ]
+        ],
+        social: {
+            twitter: 'https://twitter.com/kd9/',
+            github: 'https://github.com/crock/',
+            linkedin: 'https://www.linkedin.com/in/awcrocker/'
+        }
     },
     router,
     methods: {
