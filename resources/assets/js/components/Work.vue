@@ -38,7 +38,7 @@
         display: block;
         width: 100%;
         height: 200px;
-        background-size: contain;
+        background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
     }
@@ -84,7 +84,7 @@
         #my-work {
             display: flex;
             flex-flow: row wrap;
-            justify-content: space-around;
+            justify-content: flex-start;
         }
         #my-work img {
             width: 250xp;

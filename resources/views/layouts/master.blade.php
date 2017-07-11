@@ -25,10 +25,10 @@
 
     <div id="app">
     @section('header')
-        <navbar></navbar>
+        <navbar></navbar> 
         <profile></profile>
     @show
-        @yield('content')
+        @yield('content') 
     </div>
 
     <script src="{{ asset("js/app.js") }}" type="text/javascript"></script>
