@@ -81,14 +81,11 @@
 
     @media screen and (min-width: 769px) {
         #my-work {
+            width: 650px;
+            margin: 0 auto;
             display: flex;
             flex-flow: row wrap;
             justify-content: flex-start;
-        }
-        #my-work img {
-            width: 250xp;
-            height: 250px;
-            margin: 25px 0;
         }
     }
 </style>
