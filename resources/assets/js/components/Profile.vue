@@ -1,6 +1,6 @@
 <template>
     <div id="profile">
-        <div id="banner"></div>
+        <div id="banner" :class="timeOfDay"></div>
         <div id="pfp"></div>
 
         <div id="profile-info">
@@ -18,6 +18,26 @@
 
 <script>
     export default {
+        computed: {
+            timeOfDay: function () {
+                let d = new Date();
+                let time = d.getHours();
+                if (time > 19 || time < 6) {
+                    // If time is after 7PM or before 5AM
+                    time = "night";
+                } else if (time > 16 && time < 19) {
+                    // If time is between 5PM – 8PM
+                    time = "sunset";
+                } else if (time > 4 && time < 8) {
+                    // If time is between 5AM - 7AM
+                    time = "sunrise";
+                } else {
+                    // Else time is day
+                    time = "day";
+                }
+                return time;
+            }
+        },
         data: function () {
           return {
               fullName: 'Alex Crocker',
@@ -38,11 +58,46 @@
         top: 50px;
         width: 100%;
         height: 200px;
-        background: #6a2bd8;
-        background: -moz-linear-gradient(left, #6a2bd8 0%, #3122d6 50%, #5b97ff 100%);
-        background: -webkit-linear-gradient(left, #6a2bd8 0%,#3122d6 50%,#5b97ff 100%);
-        background: linear-gradient(to right, #6a2bd8 0%,#3122d6 50%,#5b97ff 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6a2bd8', endColorstr='#5b97ff',GradientType=1 );
+    }
+
+    .default-banner {
+        background: #93cede;
+        background: -moz-radial-gradient(center, ellipse cover, #93cede 0%, #75bdd1 50%, #49a5bf 100%);
+        background: -webkit-radial-gradient(center, ellipse cover, #93cede 0%,#75bdd1 50%,#49a5bf 100%);
+        background: radial-gradient(ellipse at center, #93cede 0%,#75bdd1 50%,#49a5bf 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', endColorstr='#49a5bf',GradientType=1 );
+    }
+
+    .night {
+        background: #004177;
+        background: -moz-linear-gradient(top, #004177 0%, #1966ff 100%);
+        background: -webkit-linear-gradient(top, #004177 0%,#1966ff 100%);
+        background: linear-gradient(to bottom, #004177 0%,#1966ff 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#004177', endColorstr='#1966ff',GradientType=0 );
+    }
+
+    .day {
+        background: #3097ff;
+        background: -moz-linear-gradient(top, #3097ff 0%, #7cd5ff 100%);
+        background: -webkit-linear-gradient(top, #3097ff 0%,#7cd5ff 100%);
+        background: linear-gradient(to bottom, #3097ff 0%,#7cd5ff 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3097ff', endColorstr='#7cd5ff',GradientType=0 );
+    }
+
+    .sunrise {
+        background: #cefffe;
+        background: -moz-linear-gradient(top, #cefffe 20%, #cefffe 20%, #fff791 51%, #febf04 100%);
+        background: -webkit-linear-gradient(top, #cefffe 20%,#cefffe 20%,#fff791 51%,#febf04 100%);
+        background: linear-gradient(to bottom, #cefffe 20%,#cefffe 20%,#fff791 51%,#febf04 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cefffe', endColorstr='#febf04',GradientType=0 );
+    }
+
+    .sunset {
+        background: #ffff0a;
+        background: -moz-linear-gradient(top, #ffff0a 0%, #ff920a 55%, #c43a3a 100%);
+        background: -webkit-linear-gradient(top, #ffff0a 0%,#ff920a 55%,#c43a3a 100%);
+        background: linear-gradient(to bottom, #ffff0a 0%,#ff920a 55%,#c43a3a 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff0a', endColorstr='#c43a3a',GradientType=0 );
     }
 
     #pfp {
