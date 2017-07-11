@@ -145,4 +145,11 @@
     :-ms-input-placeholder {
         color: #888;
     }
+
+    @media screen and (min-width: 769px) {
+        #contact {
+            width: 650px;
+            margin: 0 auto;
+        }
+    }
 </style>

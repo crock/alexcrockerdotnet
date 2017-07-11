@@ -125,4 +125,11 @@
             }
         }
     }
+
+    @media screen and (min-width: 769px) {
+        #my-posts {
+            width: 650px;
+            margin: 0 auto;
+        }
+    }
 </style>
