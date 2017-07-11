@@ -13220,13 +13220,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         timeOfDay: function timeOfDay() {
             var d = new Date();
             var time = d.getHours();
-            if (time > 19 || time < 6) {
-                // If time is after 7PM or before 5AM
+            if (time >= 20 || time < 5) {
+                // If time is between 8PM - 4AM
                 time = "night";
-            } else if (time > 16 && time < 19) {
-                // If time is between 5PM – 8PM
+            } else if (time >= 17 && time < 20) {
+                // If time is between 5PM – 7PM
                 time = "sunset";
-            } else if (time > 4 && time < 8) {
+            } else if (time >= 5 && time < 8) {
                 // If time is between 5AM - 7AM
                 time = "sunrise";
             } else {
