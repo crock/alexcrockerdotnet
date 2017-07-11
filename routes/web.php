@@ -16,15 +16,15 @@ Route::get('/', function () {
 });
 
 Route::get('/blog', function () {
-    return view('blog');
+    return view('index');
 });
 
 Route::get('/work', function () {
-    return view('work');
+    return view('index');
 });
 
 Route::get('/contact', function () {
-    return view('contact');
+    return view('index');
 });
 
 Route::post('/message/send', 'MailController@send');

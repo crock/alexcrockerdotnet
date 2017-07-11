@@ -57,23 +57,85 @@
             align-items: center;
 
             a {
-                &:nth-of-type(1) svg {
-                    width: 31px;
-                    height: auto;
+                &:nth-of-type(1) {
+                    svg {
+                        width: 31px;
+                        height: auto;
+                    }
                 }
 
-                &:nth-of-type(2) svg {
-                    width: 40px;
-                    height: auto;
+                &:nth-of-type(2) {
+                    svg {
+                        width: 40px;
+                        height: auto;
+                    }
                 }
 
-                &:nth-of-type(3) svg {
-                    width: 22px;
-                    height: auto;
+                &:nth-of-type(3) {
+                    svg {
+                        width: 22px;
+                        height: auto;
+                    }
                 }
 
                 &:hover svg {
                     fill: teal;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 769px) {
+        nav {
+            div {
+                a {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    align-content: center;
+                    align-items: center;
+                    justify-content: center;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    color: #000;
+
+                    &:nth-of-type(1) {
+                        &:after {
+                            content: 'Blog';
+                            padding-left: 10px;
+                        }
+                    }
+
+                    &:nth-of-type(2) {
+                        &:after {
+                            content: 'Work';
+                            padding-left: 10px;
+                        }
+                    }
+
+                    &:nth-of-type(3) {
+                        &:after {
+                            content: 'Contact';
+                            padding-left: 10px;
+                        }
+                    }
+
+                    &:hover {
+                        &:nth-of-type(1) {
+                            &:after {
+                                color: teal;
+                            }
+                        }
+                        &:nth-of-type(2) {
+                            &:after {
+                                color: teal;
+                            }
+                        }
+                        &:nth-of-type(3) {
+                            &:after {
+                                color: teal;
+                            }
+                        }
+                    }
                 }
             }
         }
