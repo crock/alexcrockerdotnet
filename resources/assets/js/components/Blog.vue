@@ -7,7 +7,7 @@
             </div>
             <div class="content">
                 <p v-html="post.body_abstract"></p>
-                <a :href="post.short_url" class="readMore">Read More</a>
+                <a :href="post.short_url" class="readMore"  target="_blank">Read More</a>
             </div>
         </div>
     </div>

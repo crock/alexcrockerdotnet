@@ -30897,7 +30897,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }), _vm._v(" "), _c('a', {
       staticClass: "readMore",
       attrs: {
-        "href": post.short_url
+        "href": post.short_url,
+        "target": "_blank"
       }
     }, [_vm._v("Read More")])])])
   }))
@@ -30913,7 +30914,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('router-link', {
     attrs: {
       "to": "/blog",
-      "data-ot": "My Blog"
+      "data-ot": "My Blog",
+      "aria-labelledby": "blog page"
     }
   }, [_c('svg', {
     attrs: {
@@ -30938,7 +30940,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   })])])]), _vm._v(" "), _c('router-link', {
     attrs: {
       "to": "/work",
-      "data-ot": "My Portfolio"
+      "data-ot": "My Portfolio",
+      "aria-labelledby": "portfolio page"
     }
   }, [_c('svg', {
     attrs: {
@@ -30961,7 +30964,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   })])])]), _vm._v(" "), _c('router-link', {
     attrs: {
       "to": "/contact",
-      "data-ot": "Contact Me!"
+      "data-ot": "Contact Me!",
+      "aria-labelledby": "contact page"
     }
   }, [_c('svg', {
     attrs: {
@@ -30998,7 +31002,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "work"
     }, [_c('a', {
       attrs: {
-        "href": project.short_url
+        "href": project.short_url,
+        "target": "_blank"
       }
     }, [_c('div', {
       staticClass: "image",
