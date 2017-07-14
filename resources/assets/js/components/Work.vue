@@ -2,7 +2,7 @@
     <div id="my-work">
         <div class="work" v-for="project in parseJson">
             <a :href="project.short_url" target="_blank">
-                <div class="image" :style="'background-image: url('+ project.covers.original +')'"></div>
+                <div class="image" :style="'background-image: url('+ project.covers[404] +')'"></div>
                 <div class="overlay">
                     <div class="text">{{ project.name }}</div>
                 </div>

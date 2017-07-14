@@ -31007,7 +31007,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }, [_c('div', {
       staticClass: "image",
-      style: ('background-image: url(' + project.covers.original + ')')
+      style: ('background-image: url(' + project.covers[404] + ')')
     }), _vm._v(" "), _c('div', {
       staticClass: "overlay"
     }, [_c('div', {
