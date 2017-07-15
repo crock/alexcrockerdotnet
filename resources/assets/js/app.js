@@ -42,7 +42,8 @@ const app = new Vue({
         social: {
             twitter: 'https://twitter.com/kd9/',
             github: 'https://github.com/crock/',
-            linkedin: 'https://www.linkedin.com/in/awcrocker/'
+            linkedin: 'https://www.linkedin.com/in/awcrocker/',
+            behance: 'https://www.behance.net/alexcrocker'
         }
     },
     router,

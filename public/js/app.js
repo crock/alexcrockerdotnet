@@ -12204,7 +12204,8 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
         social: {
             twitter: 'https://twitter.com/kd9/',
             github: 'https://github.com/crock/',
-            linkedin: 'https://www.linkedin.com/in/awcrocker/'
+            linkedin: 'https://www.linkedin.com/in/awcrocker/',
+            behance: 'https://www.behance.net/alexcrocker'
         }
     },
     router: __WEBPACK_IMPORTED_MODULE_2__router__["a" /* default */],

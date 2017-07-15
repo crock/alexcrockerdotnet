@@ -31,6 +31,7 @@
         @yield('content')
         <div class="social-icons">
             <a :href="this.social.twitter"><span class="fa fa-twitter fa-2x"></span></a>
+            <a :href="this.social.behance"><span class="fa fa-behance fa-2x"></span></a>
             <a :href="this.social.github"><span class="fa fa-github fa-2x"></span></a>
             <a :href="this.social.linkedin"><span class="fa fa-linkedin fa-2x"></span></a>
         </div>
