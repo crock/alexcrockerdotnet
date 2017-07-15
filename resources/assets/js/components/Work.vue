@@ -75,7 +75,7 @@
         #my-work {
             display: flex;
             flex-flow: row wrap;
-            justify-content: space-between;
+            justify-content: space-around;
         }
     }
 
@@ -85,7 +85,7 @@
             margin: 0 auto;
             display: flex;
             flex-flow: row wrap;
-            justify-content: flex-start;
+            justify-content: space-around;
         }
     }
 </style>
