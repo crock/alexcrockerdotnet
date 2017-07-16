@@ -101,7 +101,7 @@
     }
 
     #pfp {
-        background: url(/img/headshot500px.jpg);
+        background: url(/img/casual.jpg);
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
