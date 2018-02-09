@@ -29298,9 +29298,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "placeholder": "Your name",
       "name": "name",
       "type": "text",
-      "tabindex": "2",
-      "required": "",
-      "autofocus": ""
+      "tabindex": "1",
+      "required": ""
     }
   })])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -29309,7 +29308,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "placeholder": "Your Email Address",
       "name": "email",
       "type": "email",
-      "tabindex": "3",
+      "tabindex": "2",
       "required": ""
     }
   })])
@@ -29319,7 +29318,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "placeholder": "Your Phone Number (optional)",
       "name": "phone",
       "type": "tel",
-      "tabindex": "4"
+      "tabindex": "3"
     }
   })])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -29327,7 +29326,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "placeholder": "Type your message here...",
       "name": "message",
-      "tabindex": "5",
+      "tabindex": "4",
       "required": ""
     }
   })])

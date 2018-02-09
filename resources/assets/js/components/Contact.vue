@@ -3,16 +3,16 @@
         <h3>Get in touch!</h3>
         <h4>Contact me for a quote, questions/concerns, or just to say hi.</h4>
         <fieldset>
-            <input placeholder="Your name" name="name" type="text" tabindex="2" required autofocus>
+            <input placeholder="Your name" name="name" type="text" tabindex="1" required>
         </fieldset>
         <fieldset>
-            <input placeholder="Your Email Address" name="email" type="email" tabindex="3" required>
+            <input placeholder="Your Email Address" name="email" type="email" tabindex="2" required>
         </fieldset>
         <fieldset>
-            <input placeholder="Your Phone Number (optional)" name="phone" type="tel" tabindex="4">
+            <input placeholder="Your Phone Number (optional)" name="phone" type="tel" tabindex="3">
         </fieldset>
         <fieldset>
-            <textarea placeholder="Type your message here..." name="message" tabindex="5" required></textarea>
+            <textarea placeholder="Type your message here..." name="message" tabindex="4" required></textarea>
         </fieldset>
         <input type="hidden" :value="this.currentDate" name="dateSent">
         <fieldset>
