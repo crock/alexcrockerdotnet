@@ -12,13 +12,14 @@ window.VueSession = require('vue-session');
 
 import Vue from 'vue'
 import VueSession from 'vue-session'
-import router from './router'
+//import router from './router'
 import axios from 'axios'
 
 Vue.use(VueSession);
 
 const myAxios = axios.create({
-    baseURL: 'https://alexcrocker.net/'
+    baseURL: 'https://alexcrocker.net/',
+    //baseURL: 'http://ac.local/'
 });
 
 /**
@@ -28,25 +29,19 @@ const myAxios = axios.create({
  */
 
 Vue.component('navbar', require('./components/Navbar.vue'));
-Vue.component('profile', require('./components/Profile.vue'));
+Vue.component('contact', require('./components/Contact.vue'));
 
 const app = new Vue({
     el: '#app',
     data: {
-        works: [
-            {title: 'Alpha', img: 'https://placehold.it/250x250', imgAlt: 'work 1'},
-            {title: 'Bravo', img: 'https://placehold.it/250x250', imgAlt: 'work 2'},
-            {title: 'Charlie', img: 'https://placehold.it/250x250', imgAlt: 'work 3'},
-            {title: 'Delta', img: 'https://placehold.it/250x250', imgAlt: 'work 4'}
-        ],
         social: {
             twitter: 'https://twitter.com/kd9/',
             github: 'https://github.com/crock/',
             linkedin: 'https://www.linkedin.com/in/awcrocker/',
-            behance: 'https://www.behance.net/alexcrocker'
+            behance: 'https://www.behance.net/alexcrocker',
+            dribbble: 'https://dribbble.com/croc'
         }
     },
-    router,
     methods: {
         getPosts: function () {
             myAxios.get('api/posts')
@@ -65,6 +60,15 @@ const app = new Vue({
                 .catch(function (error) {
                     console.log(error);
                 });
+        },
+        getShots: function () {
+            myAxios.get('api/shots')
+                .then(function (response) {
+                    app.$session.set('shots', JSON.stringify(response.data))
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
         }
     },
     created () {
@@ -74,6 +78,7 @@ const app = new Vue({
             this.$session.start();
             this.getPosts();
             this.getProjects();
+            this.getShots();
             console.log('session data set');
         }
     },

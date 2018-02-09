@@ -17,5 +17,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/', function () {
+    return "foobar";
+});
 Route::get('/posts', 'TumblrController@getPosts');
 Route::get('/projects', 'BehanceController@getProjects');
+Route::get('/shots', 'DribbbleController@getShots');
+Route::get('/shots/{id}', 'DribbbleController@getShotDetails');

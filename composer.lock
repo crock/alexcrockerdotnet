@@ -4,8 +4,52 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1481323963b40a8b547bd987972a6d69",
+    "content-hash": "4a80a19812043d2f41ec74625b830a08",
     "packages": [
+        {
+            "name": "axp-dev/dribbble-api",
+            "version": "1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/axp-dev/dribbble-api.git",
+                "reference": "40c5d2cee5399d8f959a6f85b239c0066cf16867"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/axp-dev/dribbble-api/zipball/40c5d2cee5399d8f959a6f85b239c0066cf16867",
+                "reference": "40c5d2cee5399d8f959a6f85b239c0066cf16867",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.3",
+                "php": ">=5.6.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AXP\\DribbbleApi\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Pushkarev",
+                    "email": "axp-dev@yandex.com",
+                    "homepage": "https://github.com/axp-dev"
+                }
+            ],
+            "description": "Simple PHP library for dribbble",
+            "homepage": "https://github.com/axp-dev/dribbble-api",
+            "keywords": [
+                "api",
+                "dribbble",
+                "library"
+            ],
+            "time": "2017-08-13T08:27:47+00:00"
+        },
         {
             "name": "behance/api-network",
             "version": "2.0.0",
@@ -779,6 +823,49 @@
                 "storage"
             ],
             "time": "2017-04-28T10:15:08+00:00"
+        },
+        {
+            "name": "martinbean/dribbble-php",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/martinbean/dribbble-php.git",
+                "reference": "93fde6f05fd4c6031e2be6449dd11ae1c626aa89"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/martinbean/dribbble-php/zipball/93fde6f05fd4c6031e2be6449dd11ae1c626aa89",
+                "reference": "93fde6f05fd4c6031e2be6449dd11ae1c626aa89",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dribbble\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Martin Bean",
+                    "email": "martin@martinbean.co.uk",
+                    "homepage": "http://martinbean.co.uk"
+                }
+            ],
+            "description": "PHP wrapper for the Dribbble API.",
+            "keywords": [
+                "api",
+                "dribbble",
+                "php"
+            ],
+            "time": "2016-01-29T16:41:49+00:00"
         },
         {
             "name": "monolog/monolog",

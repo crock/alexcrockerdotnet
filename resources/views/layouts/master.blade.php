@@ -13,28 +13,24 @@
     <title>Alex Crocker</title>
 
     <!-- SEO Stuff -->
-    <meta name="description" content="Full Stack Web Developer &amp; tech enthusiast">
-    <meta name="keywords" content="alex crocker, web developer, web designer, full stack, full stack developer, web dev, developer portfolio, vue.js website, laravel website">
+    <meta name="description" content="Alex is a growing web developer, UX designer, tech enthusiast, and dreamer ready to make your next project a success!">
+    <meta name="keywords" content="alex crocker, web developer, web designer, ui/ux designer, full stack web developer, web dev, portfolio">
     <meta name="author" content="Alex Crocker">
 
     <!-- Fonts -->
     <link rel="stylesheet" href="{{ asset("css/font-awesome.min.css") }}" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css">
     <link rel="stylesheet" href="{{ asset("css/app.css") }}" type="text/css">
 </head>
-<body>
+<body data-spy="scroll" data-target="#navbar">
 
     <div id="app">
     @section('header')
         <navbar></navbar> 
-        <profile></profile>
     @show
+
         @yield('content')
-        <div class="social-icons">
-            <a :href="this.social.twitter"><span class="fa fa-twitter fa-2x"></span></a>
-            <a :href="this.social.behance"><span class="fa fa-behance fa-2x"></span></a>
-            <a :href="this.social.github"><span class="fa fa-github fa-2x"></span></a>
-            <a :href="this.social.linkedin"><span class="fa fa-linkedin fa-2x"></span></a>
-        </div>
+        
     </div>
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -45,6 +41,14 @@
         ga('create', 'UA-90621507-1', 'auto');
         ga('send', 'pageview');
 
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/392079/particles.js"></script>
+    <script>
+        particlesJS.load('particles-js', 'https://api.myjson.com/bins/xkpet', function() {
+            console.log('particles.js config loaded');
+        });
     </script>
     <script src="{{ asset("js/app.js") }}" type="text/javascript"></script>
 </body>

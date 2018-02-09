@@ -15,16 +15,4 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/blog', function () {
-    return view('index');
-});
-
-Route::get('/work', function () {
-    return view('index');
-});
-
-Route::get('/contact', function () {
-    return view('index');
-});
-
 Route::post('/message/send', 'MailController@send');

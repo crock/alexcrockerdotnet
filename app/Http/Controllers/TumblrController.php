@@ -11,8 +11,8 @@ class TumblrController extends Controller
 
     public function __construct()
     {
-        $this->client = new TClient("2Jqw0B1EzMPysOOAtgJ5aIWVDfbkqPwFItsOXZtdXwGExOmrnA", "mIuRhCyrwZRpXwFPLKlvVeVGqCLBYlgtkz8ys7K83SkTjIOwZs");
-        $this->client->setToken("2Jqw0B1EzMPysOOAtgJ5aIWVDfbkqPwFItsOXZtdXwGExOmrnA", "mIuRhCyrwZRpXwFPLKlvVeVGqCLBYlgtkz8ys7K83SkTjIOwZs");
+        $this->client = new TClient(env('TUMBLR_CONSUMER_KEY'), env('TUMBLR_CONSUMER_SECRET'));
+        $this->client->setToken(env('TUMBLR_CONSUMER_KEY'), env('TUMBLR_CONSUMER_SECRET'));
     }
 
     public function getPosts() {

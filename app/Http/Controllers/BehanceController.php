@@ -11,7 +11,7 @@ class BehanceController extends Controller
 
     public function __construct()
     {
-        $this->client = new BClient("ZuD0E8HwxGjzTnPR6vOxRqEo5TqmRXyx");
+        $this->client = new BClient(env('BEHANCE_TOKEN'));
     }
 
     public function getProjects() {

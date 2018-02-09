@@ -1,143 +1,126 @@
 <template>
-    <nav>
-        <div class="nav-wrap">
-            <router-link to="/blog" data-ot="My Blog" aria-labelledby="blog page">
-                <!--<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" class="undefined">-->
-                    <!--<g id="blog">-->
-                        <!--<path d="M11 1.1C11 0.5 10.5 0 9.9 0H1.1C0.5 0 0 0.5 0 1.1v8.8C0 10.5 0.5 11 1.1 11h8.8c0.6 0 1.1-0.5 1.1-1.1V1.1zM9 9H2V2h7V9z" class="undefined"></path>-->
-                        <!--<path d="M11 14.1c0-0.6-0.5-1.1-1.1-1.1H1.1C0.5 13 0 13.5 0 14.1v8.8C0 23.5 0.5 24 1.1 24h8.8c0.6 0 1.1-0.5 1.1-1.1V14.1zM9 22H2v-7h7V22z" class="undefined"></path>-->
-                        <!--<path d="M24 7.1C24 6.5 23.5 6 22.9 6h-8.8C13.5 6 13 6.5 13 7.1v2.8c0 0.6 0.5 1.1 1.1 1.1h8.8c0.6 0 1.1-0.5 1.1-1.1V7.1zM23 10h-9V7h9V10z" class="undefined"></path>-->
-                        <!--<path d="M24 1.1C24 0.5 23.5 0 22.9 0h-8.8C13.5 0 13 0.5 13 1.1v2.8C13 4.5 13.5 5 14.1 5h8.8C23.5 5 24 4.5 24 3.9V1.1zM23 4h-9V1h9V4z" class="undefined"></path>-->
-                        <!--<path d="M24 20.1c0-0.6-0.5-1.1-1.1-1.1h-8.8c-0.6 0-1.1 0.5-1.1 1.1v2.8c0 0.6 0.5 1.1 1.1 1.1h8.8c0.6 0 1.1-0.5 1.1-1.1V20.1zM23 23h-9v-3h9V23z" class="undefined"></path>-->
-                        <!--<path d="M24 14.1c0-0.6-0.5-1.1-1.1-1.1h-8.8c-0.6 0-1.1 0.5-1.1 1.1v2.8c0 0.6 0.5 1.1 1.1 1.1h8.8c0.6 0 1.1-0.5 1.1-1.1V14.1zM23 17h-9v-3h9V17z" class="undefined"></path>-->
-                    <!--</g>-->
-                <!--</svg>-->
-                <svg height="50px" version="1.1" viewBox="0 0 16 16" width="50px" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <g id="blog" transform="translate(-816.000000, -240.000000)">
-                        <path d="M817,245 L817,253 C817,251.941162 818.964988,251.002076 820.5,251.002075 C822.035012,251.002075 824,252.058105 824,253 L824,245 C824,243.895431 822.052002,242.974609 820.5,242.974609 C818.947998,242.974609 817,243.895431 817,245 Z M818,245.4 C818,244.626801 819.391427,243.982227 820.5,243.982227 C821.608573,243.982227 823,244.626801 823,245.4 L823,251 C823,250.340674 821.596437,250.004822 820.5,250.004822 C819.403563,250.004822 818,250.258813 818,251 Z M824,245 C824,243.895431 825.947998,242.974609 827.5,242.974609 C829.052002,242.974609 831,243.895431 831,245 L831,253 C831,252.058105 829.035012,251.002075 827.5,251.002075 C825.964988,251.002076 824,251.941162 824,253 Z M825,245.4 L825,251 C825,250.258813 826.403563,250.004822 827.5,250.004822 C828.596437,250.004822 830,250.340674 830,251 L830,245.4 C830,244.626801 828.608573,243.982227 827.5,243.982227 C826.391427,243.982227 825,244.626801 825,245.4 Z M825,245.4" id="Rectangle 310"/>
-                    </g>
-                </svg>
-            </router-link>
-            <router-link to="/work" data-ot="My Portfolio" aria-labelledby="portfolio page">
-                <svg height="50px" version="1.1" viewBox="0 0 91 91" width="50px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <g id="portfolio">
-                        <path d="M73.379,30.118c-0.017-0.045-0.035-0.084-0.055-0.127c-0.024-0.051-0.039-0.104-0.067-0.153   c-0.067-0.112-0.151-0.21-0.239-0.302c-0.008-0.008-0.014-0.018-0.021-0.025c-0.141-0.141-0.307-0.244-0.484-0.326   c-0.037-0.02-0.076-0.033-0.115-0.048c-0.189-0.071-0.389-0.122-0.597-0.122H55.926v-5.525c0-0.938-0.762-1.699-1.7-1.699H38.076   c-0.939,0-1.701,0.761-1.701,1.699v5.525H20.501c-0.202,0-0.396,0.048-0.579,0.115c-0.044,0.016-0.086,0.032-0.128,0.053   c-0.179,0.082-0.345,0.186-0.486,0.325c-0.003,0.001-0.006,0.003-0.009,0.005c-0.008,0.008-0.012,0.021-0.02,0.029   c-0.086,0.091-0.168,0.187-0.234,0.296c-0.031,0.052-0.047,0.108-0.071,0.161c-0.02,0.043-0.039,0.084-0.056,0.129   c-0.068,0.184-0.111,0.375-0.113,0.569c0,0.006-0.004,0.011-0.004,0.017v39.121c0,0.938,0.762,1.699,1.7,1.699h46.481   c3.594,0,6.518-2.924,6.518-6.518V30.716c0-0.006-0.004-0.012-0.004-0.018C73.494,30.501,73.45,30.306,73.379,30.118z    M39.775,25.189h12.75v3.825h-12.75V25.189z M68.974,32.416L62.277,45.05H51.898H40.404H30.023l-6.697-12.635L68.974,32.416z    M49.824,48.45c-0.645,1.385-2.049,2.348-3.674,2.348s-3.027-0.963-3.672-2.348H49.824z M70.1,65.017   c0,1.719-1.398,3.117-3.117,3.117H22.201V37.552l5.297,9.994c0.297,0.557,0.874,0.904,1.503,0.904h9.918   c0.773,3.286,3.713,5.747,7.231,5.747c3.52,0,6.46-2.461,7.233-5.747H63.3c0.63,0,1.207-0.348,1.503-0.904l5.297-9.994V65.017z"></path>
-                    </g>
-                </svg>
-            </router-link>
-            <router-link to="/contact" data-ot="Contact Me!" aria-labelledby="contact page">
-                <svg version="1.1" viewBox="0 0 96.311 100.241" width="50" height="50" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <g id="contact">
-                        <path d="M93.136,24.456c-2.116-4.937-5.129-9.22-9.038-12.848c-3.91-3.628-8.616-6.469-14.117-8.525   C64.479,1.028,58.322,0,51.511,0c-4.918,0-9.604,0.615-14.057,1.844C33,3.074,28.869,4.817,25.06,7.074   c-3.809,2.258-7.265,4.988-10.369,8.192c-3.104,3.204-5.744,6.782-7.92,10.731c-2.177,3.951-3.85,8.233-5.018,12.847   C0.584,43.461,0,48.287,0,53.325c0,7.337,1.199,13.906,3.597,19.71c2.397,5.804,5.865,10.722,10.399,14.752   c4.534,4.03,10.056,7.113,16.566,9.25c6.509,2.135,13.895,3.204,22.158,3.204c4.716,0,9.039-0.354,12.968-1.058   c3.93-0.705,7.789-1.865,11.578-3.476l-3.083-7.436c-3.023,1.289-6.309,2.267-9.855,2.932c-3.547,0.665-7.457,0.998-11.729,0.998   c-6.933,0-13.13-0.867-18.591-2.6c-5.462-1.734-10.087-4.263-13.875-7.588c-3.789-3.325-6.691-7.395-8.706-12.212   c-2.016-4.816-3.023-10.308-3.023-16.475c0-6.327,1.067-12.232,3.204-17.714c2.136-5.481,5.109-10.257,8.918-14.329   c3.809-4.07,8.353-7.275,13.633-9.613c5.28-2.337,11.064-3.507,17.352-3.507c5.239,0,10.086,0.816,14.54,2.448   c4.453,1.632,8.283,3.89,11.487,6.771c3.204,2.882,5.714,6.298,7.528,10.248c1.814,3.951,2.721,8.263,2.721,12.938   c0,4.474-0.535,8.494-1.603,12.061c-1.068,3.567-2.509,6.581-4.322,9.039c-1.814,2.459-3.93,4.344-6.348,5.653   c-2.418,1.31-4.978,1.965-7.678,1.965c-1.17,0-2.016-0.322-2.539-0.967c-0.524-0.644-0.786-1.551-0.786-2.721   c0-0.927,0.13-2.045,0.393-3.355c0.262-1.309,0.574-3.028,0.937-4.761l7.799-34.9h-9.613l-1.149,5.155   c-1.935-2.095-4.132-3.59-6.59-4.678c-2.459-1.088-5.341-1.583-8.646-1.583c-3.748,0-7.296,0.912-10.641,2.685   c-3.346,1.774-6.278,4.235-8.797,7.358c-2.52,3.124-4.504,6.829-5.955,11.1c-1.451,4.273-2.177,8.911-2.177,13.909   c0,3.386,0.463,6.401,1.391,9.04c0.927,2.64,2.216,4.878,3.869,6.712c1.652,1.835,3.637,3.226,5.955,4.172   c2.317,0.948,4.846,1.421,7.587,1.421c3.224,0,6.288-0.745,9.19-2.237c2.902-1.49,5.502-3.607,7.799-6.348   c0.121,1.209,0.463,2.338,1.028,3.386c0.564,1.049,1.32,1.956,2.267,2.721c0.946,0.766,2.045,1.371,3.295,1.814   c1.249,0.444,2.6,0.665,4.051,0.665c4.272,0,8.232-0.846,11.88-2.539c3.648-1.693,6.802-4.141,9.462-7.346   c2.66-3.204,4.735-7.124,6.227-11.759c1.491-4.634,2.237-9.894,2.237-15.78C96.311,34.724,95.252,29.394,93.136,24.456z    M56.831,53.325c-0.565,2.459-1.371,4.666-2.418,6.62c-1.049,1.956-2.267,3.628-3.658,5.018c-1.391,1.391-2.932,2.459-4.625,3.204   c-1.693,0.746-3.446,1.118-5.26,1.118c-6.933,0-10.399-4.373-10.399-13.12c0-3.587,0.473-6.972,1.421-10.157   c0.946-3.183,2.207-5.964,3.779-8.343c1.572-2.378,3.395-4.262,5.471-5.653c2.075-1.39,4.241-2.086,6.499-2.086   c3.062,0,5.662,0.565,7.799,1.693c2.136,1.129,3.909,2.5,5.32,4.111L56.831,53.325z"></path>
-                    </g>
-                </svg>
-            </router-link>
+    <header class="day edge--bottom--reverse" id="particles-js">
+        <nav class="navbar navbar-expand-lg">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primaryNav" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="primaryNav">
+                <div class="navbar-nav" id="navbar">
+                    <a class="nav-item nav-link" href="#work">Work</a>
+                    <a class="nav-item nav-link" href="#contact">Contact</a>
+                </div>
+            </div>
+        </nav>
+        <div class="title-info">
+            <h1>Alex Crocker</h1>
+            <p>web developer extraordinaire</p>
         </div>
-    </nav>
+    </header>
 </template>
 
 <style lang="scss">
-    nav {
-        width: 100%;
-        height: 50px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        background: #fff;
-        z-index: 1000;
+header {
+	background: #3097ff;
+	width: 100%;
+	height: 400px;
+	position: relative;
 
-        div {
-            width: 80%;
-            height: inherit;
-            margin: 0 auto;
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: space-around;
-            align-items: center;
+	.title-info {
+		z-index: 900;
+		position: absolute;
+		top: 50%;
+		transform: translatey(-50%);
+		right: 0;
+		margin-right: 25px;
+		text-align: right;
 
-            a {
-                &:nth-of-type(1) {
-                    svg {
-                        width: 31px;
-                        height: auto;
-                    }
-                }
+		h1 {
+			font-weight: bold;
+			color: #fff;
+			font-size: 64px;
+		}
 
-                &:nth-of-type(2) {
-                    svg {
-                        width: 40px;
-                        height: auto;
-                    }
-                }
+		p {
+			color: #9ce6ff;
+			font-weight: 300;
+			font-size: 21px;
+			text-transform: uppercase;
+		}
+	}
+}
 
-                &:nth-of-type(3) {
-                    svg {
-                        width: 22px;
-                        height: auto;
-                    }
-                }
+@media screen and (max-width: 991px) {
+	header {
+		height: 400px;
 
-                &:hover svg {
-                    fill: teal;
-                }
-            }
-        }
-    }
+		.title-info {
+			right: unset;
+			top: unset;
+			transform: unset;
+			bottom: 0;
+			width: 100%;
+			margin: 25px auto;
+			text-align: center;
 
-    @media screen and (min-width: 769px) {
-        nav {
-            div {
-                a {
-                    display: flex;
-                    flex-flow: row nowrap;
-                    align-content: center;
-                    align-items: center;
-                    justify-content: center;
-                    text-decoration: none;
-                    text-transform: uppercase;
-                    color: #000;
+			h1 {
+				font-size: 54px;
+			}
 
-                    &:nth-of-type(1) {
-                        &:after {
-                            content: 'Blog';
-                            padding-left: 10px;
-                        }
-                    }
+			p {
+				font-size: 18px;
+			}
+		}
+	}
+}
 
-                    &:nth-of-type(2) {
-                        &:after {
-                            content: 'Work';
-                            padding-left: 10px;
-                        }
-                    }
+.navbar {
+	width: 100%;
+	position: fixed;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-end;
+	z-index: 1000;
+	background: #5199FF;
+}
 
-                    &:nth-of-type(3) {
-                        &:after {
-                            content: 'Contact';
-                            padding-left: 10px;
-                        }
-                    }
+.navbar-collapse {
+	flex-grow: unset;
+}
 
-                    &:hover {
-                        &:nth-of-type(1) {
-                            &:after {
-                                color: teal;
-                            }
-                        }
-                        &:nth-of-type(2) {
-                            &:after {
-                                color: teal;
-                            }
-                        }
-                        &:nth-of-type(3) {
-                            &:after {
-                                color: teal;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+.navbar-nav {
+	align-items: center;
+}
+
+.nav-link {
+	text-transform: uppercase;
+	color: #9ce6ff;
+	font-weight: 300;
+
+	&:hover {
+		color: #fff;
+		border-radius: 10px;
+	}
+}
+
+.nav-link.active {
+	color: #000;
+	background: #fff;
+	border-radius: 10px;
+}
+
+.navbar-toggler {
+	background: white;
+	span {
+		color: #3097ff;
+	}
+}
+
+@media screen and (max-width: 991px) {
+	.navbar-nav {
+		.nav-link {
+			display: block;
+			padding: 0.75rem 25%;
+		}
+	}
+}
 </style>

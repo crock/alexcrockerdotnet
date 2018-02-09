@@ -6,9 +6,11 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
+        "axp-dev/dribbble-api": "^1.6",
         "behance/api-network": "^2.0",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
+        "martinbean/dribbble-php": "4.*",
         "tumblr/tumblr": "^0.3.0"
     },
     "require-dev": {
