@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('revamp');
 });
 
 Route::post('/message/send', 'MailController@send');
