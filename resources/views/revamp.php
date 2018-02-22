@@ -76,7 +76,7 @@ a i {
 <body>
    <div id="wrapper">
       <h1>Major Revamp Underway</h1>
-      <p>Unfortunately, I have taken down down my website until further notice. If you are from <span>Human Resources</span>, please disregard my application at this time.<br> I may re-apply later this year.</p>
+      <p>Unfortunately, I have taken down down my website until further notice.</p>
       <a href="https://twitter.com/kd9"><i class="fa fa-twitter fa-2x"></i></a>
    </div>
 </body>
